@@ -7,6 +7,6 @@ using UnityEngine;
 public class LevelData
 {
     [SerializeField]
-    private string sceneName;
+    private string sceneName = null;
     public string SceneName => sceneName;
 }

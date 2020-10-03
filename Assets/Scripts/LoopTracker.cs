@@ -58,13 +58,15 @@ public class LoopTracker : MonoBehaviour
         currIndex = 0;
     }
 
-    private void OnDisable()
-    {
-        
-    }
-
     private void OnEnable()
     {
-        
+        LoopManager.StartReplay += StartReplay;
+        LoopManager.ResetReplay += Reset;
+    }
+    
+    private void OnDisable()
+    {
+        LoopManager.StartReplay -= StartReplay;
+        LoopManager.ResetReplay -= Reset;
     }
 }
