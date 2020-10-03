@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class InputAction
 {
+    public InputAction()
+    {
+        
+    }
+    
     public InputAction(PhysicsController _player)
     {
         player = _player;

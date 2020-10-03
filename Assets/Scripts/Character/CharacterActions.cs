@@ -22,7 +22,7 @@ public class JumpAction : InputAction
 {
     public bool isDown;
 
-    public JumpAction(bool _isDown, PhysicsController _player) : base(_player)
+    public JumpAction(PhysicsController _player, bool _isDown) : base(_player)
     {
         isDown = _isDown;
     }
@@ -32,4 +32,19 @@ public class JumpAction : InputAction
         player.JumpPressed = isDown;
     }
 
+}
+
+public class KysAction : InputAction
+{
+    private CharController cc;
+
+    public KysAction(CharController _cc)
+    {
+        cc = _cc;
+    }
+
+    public override void PlayAction()
+    {
+        cc.TriggerDeath();
+    }
 }

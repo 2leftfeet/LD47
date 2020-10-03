@@ -36,7 +36,7 @@ public class PhysicsController : MonoBehaviour
         JumpPressed = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(body.collisionState.above || body.collisionState.below)
         {
@@ -96,6 +96,11 @@ public class PhysicsController : MonoBehaviour
         velocityBuffer = Vector2.zero;
 
         body.Move(velocity * Time.deltaTime);
+    }
+
+    public Vector2 GetVelocity()
+    {
+        return velocity;
     }
 
     public void AddVelocity(Vector2 addVel)

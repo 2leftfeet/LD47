@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     private static LevelManager instance;
 
     [SerializeField]
-    private LevelData[] levelData;
+    private SceneData[] levelData = null;
     private int currLevelIndex = 0;
     
     // Start is called before the first frame update
@@ -30,7 +30,8 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        // Maybe start first level from here
+        // LoadLevel(0);
+        StartLevel();
     }
 
     private void LoadNextLevel()
@@ -49,9 +50,20 @@ public class LevelManager : MonoBehaviour
         
     }
     
-    // Update is called once per frame
-    void Update()
+    public void TriggerDeath()
     {
-        
+        ResetLevel();
+    }
+
+    void StartLevel()
+    {
+        LoopManager.Instance.StartReplays();
+        SpawnPosition.Instance.SpawnPlayer();
+    }
+
+    void ResetLevel()
+    {
+        LoopManager.Instance.ResetReplays();
+        StartLevel();
     }
 }
