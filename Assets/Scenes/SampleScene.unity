@@ -537,7 +537,7 @@ MonoBehaviour:
   body: {fileID: 0}
   runMaxSpeed: 10
   runAcceleration: 50
-  jumpVelocity: 10
+  jumpVelocity: 20
   jumpBufferTime: 0.1
   bangedStateTime: 0.5
   apexLowGravityVelocityRange: 0
@@ -599,6 +599,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab887c52e53f4087bd9f6169c77d176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1395243085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395243075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a09eb1c770bcd44da70769f5ca0c8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currFixedFrame: 0
+  currIndex: 0
 --- !u!850595691 &1601947135
 LightingSettings:
   m_ObjectHideFlags: 0

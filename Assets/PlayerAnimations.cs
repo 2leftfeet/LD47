@@ -16,7 +16,7 @@ public class PlayerAnimations : MonoBehaviour
     void Update()
     {
         Vector2 velocity = player.GetVelocity();
-        animator.SetFloat("Y_Velocity", velocity.y);
+        animator.SetBool("Falling", velocity.y < 0.0f);
 
         animator.SetBool("Running", Mathf.Abs(velocity.x) > 0.0f);
         animator.SetBool("Jump", player.JumpPressed);
