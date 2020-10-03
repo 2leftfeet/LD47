@@ -98,6 +98,11 @@ public class PhysicsController : MonoBehaviour
         body.Move(velocity * Time.deltaTime);
     }
 
+    public Vector2 GetVelocity()
+    {
+        return velocity;
+    }
+
     public void AddVelocity(Vector2 addVel)
     {
         velocity.y = 0.0f;
