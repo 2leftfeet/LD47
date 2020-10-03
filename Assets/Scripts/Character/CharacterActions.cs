@@ -45,6 +45,6 @@ public class KysAction : InputAction
 
     public override void PlayAction()
     {
-        cc.gameObject.SetActive(false);
+        cc.TriggerDeath();
     }
 }

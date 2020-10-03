@@ -17,6 +17,8 @@ public class LoopTracker : MonoBehaviour
     private Vector3 startingPos;
     
     private bool isPlayerControlled = true;
+    public bool IsPlayerControlled => isPlayerControlled;
+    
     private bool isReplaying = false;
     public int currFixedFrame = 0;
     public int currIndex = 0;
@@ -82,7 +84,6 @@ public class LoopTracker : MonoBehaviour
         isPlayerControlled = value;
         // TODO: move somewhere else mby
         GetComponent<PlayerInput>().enabled = value;
-
     }
 
     private void OnDestroy()
