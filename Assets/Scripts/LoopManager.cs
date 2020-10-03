@@ -18,7 +18,7 @@ public class LoopManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("This is not okie dokie, two LoopManagers exist");
+            Debug.LogError($"This is not okie dokie, two {GetType().ToString()} exist");
         }
     }
 }

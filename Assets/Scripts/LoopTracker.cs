@@ -57,4 +57,14 @@ public class LoopTracker : MonoBehaviour
         currFixedFrame = 0;
         currIndex = 0;
     }
+
+    private void OnDisable()
+    {
+        
+    }
+
+    private void OnEnable()
+    {
+        
+    }
 }
