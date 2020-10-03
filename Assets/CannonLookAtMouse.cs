@@ -7,9 +7,17 @@ public class CannonLookAtMouse : MonoBehaviour
     public Transform ikTarget;
     public Transform armRoot;
     public float distanceFromCharacter;
-    public Camera camera;
+    Camera camera;
+
+    public float scale;
 
     [HideInInspector] public bool backwards;
+
+    void Awake()
+    {
+        camera = Camera.main;
+    }
+
 
     void Update()
     {
@@ -24,12 +32,12 @@ public class CannonLookAtMouse : MonoBehaviour
 
         if(dir.x > 0)
         {
-            transform.localScale = new Vector3(-1, 1 ,1);
+            transform.localScale = new Vector3(-scale, scale ,scale);
             backwards = true;
         }
         else
         {
-            transform.localScale = new Vector3(1, 1 ,1);
+            transform.localScale = new Vector3(scale, scale ,scale);
             backwards = false;
         }
     }
