@@ -23,7 +23,8 @@ public class OverlapTrigger : MonoBehaviour
     
     // Update is called once per frame
     void FixedUpdate()
-    {
+    { 
+
         ArrayList filteredColliders = new ArrayList();
 
         Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position + positionOffset, radius, layer);
@@ -76,5 +77,13 @@ public class OverlapTrigger : MonoBehaviour
         lastColliders.Clear();
         lastColliders = filteredColliders;
 
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.green;
+        
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
