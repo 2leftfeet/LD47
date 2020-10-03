@@ -8,13 +8,13 @@ public class OverlapTrigger : MonoBehaviour
     public event System.Action OnTriggerExit = delegate { };
 
     [SerializeField]
-    LayerMask layer;// = LayerMask.GetMask("Default");
+    LayerMask layer;// = LayerMask.GetMask("Everything");
 
     [SerializeField]
-    Vector3 positionOffset = new Vector3(0f,0f,0f);
+    Vector2 positionOffset = new Vector2(0f,0f);
     
     [SerializeField]
-    float radius = 5.0f;
+    float radius = 1.0f;
 
     [SerializeField]
     string targetTag = "Player";
@@ -27,18 +27,18 @@ public class OverlapTrigger : MonoBehaviour
 
         ArrayList filteredColliders = new ArrayList();
 
-        Collider[] colliders = Physics.OverlapSphere(gameObject.transform.position + positionOffset, radius, layer);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(gameObject.transform.position.x,gameObject.transform.position.y) + positionOffset, radius, layer);
 
 
 
-        foreach (Collider entity in colliders)
+        foreach (Collider2D entity in colliders)
         {
             bool same = false;
             if (entity.CompareTag(targetTag))
             {
                 if (lastColliders.Count > 0)
                 {
-                    foreach (Collider old in lastColliders)
+                    foreach (Collider2D old in lastColliders)
                     {
                         if (old == entity)
                         {
@@ -56,10 +56,10 @@ public class OverlapTrigger : MonoBehaviour
             }
         }
 
-        foreach(Collider old in lastColliders)
+        foreach(Collider2D old in lastColliders)
         {
             bool foundSame = false;
-            foreach(Collider newOne in filteredColliders)
+            foreach(Collider2D newOne in filteredColliders)
             {
                 if (old == newOne)
                 {
