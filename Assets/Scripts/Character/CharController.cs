@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class CharController : MonoBehaviour
 {
-    
+    public void TriggerDeath()
+    {
+        
+    }
 }
