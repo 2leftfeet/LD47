@@ -7,8 +7,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(BodyMovement))]
 public class PhysicsController : MonoBehaviour
 {
-    public Text stateText;
-
     //later either use Physics2D gravity or have a global data struct
     float gravity = -40f;
     float landingGravityModifier = 1.5f;
@@ -25,12 +23,17 @@ public class PhysicsController : MonoBehaviour
     [SerializeField] float bangedStateTime = 0.5f;
     [SerializeField] float apexLowGravityVelocityRange = 2.0f;
 
+    public float InputX {get; set;}
+    public bool JumpPressed {get; set;}
+
 
     float jumpBuffer = 0.0f;
     
     void Awake()
     {
         body = GetComponent<BodyMovement>();
+        InputX = 0.0f;
+        JumpPressed = false;
     }
 
     void Update()
@@ -52,7 +55,7 @@ public class PhysicsController : MonoBehaviour
         }
         else
         {
-            if(Input.GetKey(KeyCode.Space))
+            if(JumpPressed)
             {
                 velocity.y += gravity * variableJumpGravityModifier * Time.deltaTime;
             }
@@ -69,7 +72,7 @@ public class PhysicsController : MonoBehaviour
             }
         }
         
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(JumpPressed)
         {
             jumpBuffer = jumpBufferTime;
         }
@@ -82,7 +85,8 @@ public class PhysicsController : MonoBehaviour
             jumpBuffer -= Time.deltaTime;
         }
 
-        float targetX = Input.GetAxisRaw("Horizontal") * runMaxSpeed;
+        //float targetX = Input.GetAxisRaw("Horizontal") * runMaxSpeed;
+        float targetX = InputX * runMaxSpeed;
 
         float currentAcceleration = runAcceleration;
         velocity.x = Mathf.MoveTowards(velocity.x, targetX, currentAcceleration * Time.deltaTime);

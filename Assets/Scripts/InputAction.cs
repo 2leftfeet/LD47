@@ -5,5 +5,7 @@ using UnityEngine;
 
 public abstract class InputAction
 {
+    protected PhysicsController player;
     public abstract void PlayAction();
+
 }
