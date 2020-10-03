@@ -7,6 +7,8 @@ public class LoopManager : MonoBehaviour
     public static LoopManager Instance => instance;
     private static LoopManager instance;
 
+    public event System.Action StartReplay;
+    
     // Start is called before the first frame update
     void Awake()
     {
