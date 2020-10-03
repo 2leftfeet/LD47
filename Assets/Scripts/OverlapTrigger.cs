@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class OverlapTrigger : MonoBehaviour
 {
-    public event System.Action OnTriggerEnter = delegate { };
-    public event System.Action OnTriggerExit = delegate { };
-
+    public event System.Action<Collider2D> OnTriggerEnter = delegate { };
+    public event System.Action<Collider2D> OnTriggerExit = delegate { };
+    public event System.Action<Collider2D> OnTriggerStay = delegate { };
     [SerializeField]
     LayerMask layer;// = LayerMask.GetMask("Everything");
 
@@ -49,9 +49,10 @@ public class OverlapTrigger : MonoBehaviour
                     }
                 }
                 filteredColliders.Add(entity);
+                OnTriggerStay(entity);
                 if (!same)
                 {
-                    OnTriggerEnter();
+                    OnTriggerEnter(entity);
                 }
             }
         }
@@ -69,7 +70,7 @@ public class OverlapTrigger : MonoBehaviour
             }
             if (!foundSame)
             {
-                OnTriggerExit();
+                OnTriggerExit(old);
             }
         }
 

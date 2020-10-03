@@ -38,7 +38,7 @@ public class Button : MonoBehaviour
         trigger.OnTriggerExit += Exit;
     }
         
-    void Enter()
+    void Enter(Collider2D other)
     {
         playersOnButton++;
         if (playersOnButton == numOfPlayerReq)
@@ -56,7 +56,7 @@ public class Button : MonoBehaviour
         }
     }
 
-    private void Exit()
+    private void Exit(Collider2D other)
     {
         playersOnButton--;
         if (playersOnButton < numOfPlayerReq)
