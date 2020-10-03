@@ -652,6 +652,7 @@ GameObject:
   - component: {fileID: 1873934070}
   - component: {fileID: 1873934074}
   - component: {fileID: 1873934075}
+  - component: {fileID: 1873934076}
   m_Layer: 0
   m_Name: Quad
   m_TagString: Untagged
@@ -780,7 +781,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71b93e277070143358c7d6af77cb54b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateText: {fileID: 0}
   body: {fileID: 0}
   runMaxSpeed: 5
   runAcceleration: 40
@@ -788,3 +788,15 @@ MonoBehaviour:
   jumpBufferTime: 0.1
   bangedStateTime: 0.5
   apexLowGravityVelocityRange: 2
+--- !u!114 &1873934076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873934069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b187325d2774349b6b943db30ff01b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
