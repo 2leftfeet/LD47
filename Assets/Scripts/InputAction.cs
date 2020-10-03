@@ -3,9 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class InputAction
+public class InputAction
 {
+    public InputAction(PhysicsController _player)
+    {
+        player = _player;
+    }
+
     protected PhysicsController player;
-    public abstract void PlayAction();
+    public virtual void PlayAction(){}
 
 }
