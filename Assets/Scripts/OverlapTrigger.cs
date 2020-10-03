@@ -84,6 +84,6 @@ public class OverlapTrigger : MonoBehaviour
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.green;
         
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position + new Vector3(positionOffset.x, positionOffset.y, 0f), radius);
     }
 }
