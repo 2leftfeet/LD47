@@ -206,7 +206,7 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0, w: 0}
     - {x: 0, y: 0, z: 0, w: 0}
     - {x: 0, y: 0, z: 0, w: 0}
-  m_Flip: 0
+  m_Flip: 1
 --- !u!4 &154157166
 Transform:
   m_ObjectHideFlags: 0
@@ -262,6 +262,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb62f3f6b02ba4a97a24677c15674064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ikTarget: {fileID: 44869067}
+  armRoot: {fileID: 489401527}
+  distanceFromCharacter: 20
+  camera: {fileID: 963194227}
 --- !u!4 &489401527 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6417624130477446876, guid: 0ca31f16b4fd89f40ab83e5268fc9acb, type: 3}
@@ -528,6 +532,10 @@ PrefabInstance:
     - target: {fileID: 4925625725966738980, guid: 0ca31f16b4fd89f40ab83e5268fc9acb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4925625725966738980, guid: 0ca31f16b4fd89f40ab83e5268fc9acb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4982115881101231321, guid: 0ca31f16b4fd89f40ab83e5268fc9acb, type: 3}
       propertyPath: m_LocalRotation.x

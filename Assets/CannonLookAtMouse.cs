@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class CannonLookAtMouse : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform ikTarget;
+    public Transform armRoot;
+    public float distanceFromCharacter;
+    public Camera camera;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Vector3 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0.0f;
+        Vector3 rootPos = new Vector3(transform.position.x, armRoot.position.y, 0.0f);
+        Vector3 dir = (mousePos - rootPos).normalized;
+
+
+        ikTarget.position = rootPos + dir * distanceFromCharacter;
+ 
+
+        if(dir.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1 ,1);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1, 1 ,1);
+        }
     }
 }
