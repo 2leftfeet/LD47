@@ -8,9 +8,9 @@ public class Spikes : MonoBehaviour
 
     OverlapTrigger deathZone;
 
-
     private void Awake()
     {
+        deathZone = GetComponent<OverlapTrigger>();
         deathZone.OnTriggerEnter += KillPlayer;
     }
 
