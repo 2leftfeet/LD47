@@ -1825,7 +1825,7 @@ GameObject:
   - component: {fileID: 1395243085}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1893,7 +1893,7 @@ MonoBehaviour:
   ikTarget: {fileID: 7634118888272127364}
   armRoot: {fileID: 3530309233483606379}
   distanceFromCharacter: 20
-  camera: {fileID: 0}
+  scale: 0
   backwards: 0
 --- !u!95 &4438972307335608977
 Animator:

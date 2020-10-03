@@ -9,6 +9,9 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance => instance;
     private static LevelManager instance;
 
+    [SerializeField] 
+    private bool isDebug;
+    
     [SerializeField]
     private SceneData[] levelData = null;
     private int currLevelIndex = 0;
@@ -31,7 +34,8 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         // LoadLevel(0);
-        StartLevel();
+        if(isDebug)
+            StartLevel();
     }
 
     private void LoadNextLevel()

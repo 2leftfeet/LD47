@@ -21,8 +21,6 @@ public class FieldOfView : MonoBehaviour
 
 	public MeshFilter viewMeshFilter;
 	Mesh viewMesh;
-
-	// keep a copy of the executing script
     private IEnumerator coroutine;
 
 
@@ -36,8 +34,6 @@ public class FieldOfView : MonoBehaviour
 		viewMesh = new Mesh();
 		viewMesh.name = "View Mesh";
 		viewMeshFilter.mesh = viewMesh;
-
-		//coroutine = FindTargetsWithDelay(.2f);
 	}
 
 	void LateUpdate() {
@@ -105,7 +101,7 @@ public class FieldOfView : MonoBehaviour
 
 				if (!Physics2D.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask)) {
 					if(target.tag == "Player"){
-						//Debug.Log("Got em");
+						Debug.Log("Got em");
 
 						//Reload
 						viewMesh.Clear ();
