@@ -100,7 +100,7 @@ ScriptedImporter:
       y: 4
       width: 1244
       height: 2046
-    spriteID: a87b96c2844e5614db66470f0a748c40
+    spriteID: 45e51264a050bb04191577d800e9afd4
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -122,7 +122,7 @@ ScriptedImporter:
       y: 4
       width: 1240
       height: 2046
-    spriteID: 87bda3992f78f4b45b118a90d269ad41
+    spriteID: 25f714b156373214f9a406aba3a67256
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -156,14 +156,14 @@ ScriptedImporter:
     spriteName: warehouse
     isGroup: 0
     parentIndex: -1
-    spriteID: a87b96c2844e5614db66470f0a748c40
+    spriteID: 45e51264a050bb04191577d800e9afd4
     layerID: 8
     mosaicPosition: {x: 4, y: 4}
   - name: Layer 1
     spriteName: Layer 1
     isGroup: 0
     parentIndex: -1
-    spriteID: 87bda3992f78f4b45b118a90d269ad41
+    spriteID: 25f714b156373214f9a406aba3a67256
     layerID: 6
     mosaicPosition: {x: 1256, y: 4}
   characterData:
