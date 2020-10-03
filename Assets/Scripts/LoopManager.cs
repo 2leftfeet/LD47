@@ -33,4 +33,12 @@ public class LoopManager : MonoBehaviour
     {
         ResetReplay?.Invoke();
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            LevelManager.Instance.TriggerDeath();
+        }
+    }
 }

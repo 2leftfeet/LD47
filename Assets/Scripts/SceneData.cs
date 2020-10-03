@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class LevelData
+public class SceneData
 {
     [SerializeField]
     private string sceneName = null;

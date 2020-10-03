@@ -31,7 +31,7 @@ public class BodyMovement : MonoBehaviour
     public CollisionState collisionState;
     public event Action OnGrounded = delegate{};
     
-    void Start()
+    void Awake()
     {
         box = GetComponent<BoxCollider2D>();
         GetRayOrigins();

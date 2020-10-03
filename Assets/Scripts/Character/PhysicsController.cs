@@ -36,7 +36,7 @@ public class PhysicsController : MonoBehaviour
         JumpPressed = false;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(body.collisionState.above || body.collisionState.below)
         {
