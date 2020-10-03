@@ -31,7 +31,6 @@ public class JumpAction : InputAction
     {
         player.JumpPressed = isDown;
     }
-
 }
 
 public class KysAction : InputAction
