@@ -13,8 +13,7 @@ public class Button : MonoBehaviour
     OverlapTrigger trigger;
 
     // number of players required to activate
-    [SerializeField] int numOfPlayerReq = 0; // number of players required to activate
-
+    [SerializeField] int numOfPlayerReq = 0;
 
     private int playersOnButton = 0;
 
@@ -44,7 +43,10 @@ public class Button : MonoBehaviour
         playersOnButton++;
         if (playersOnButton == numOfPlayerReq)
         {
-            sprite.sprite = activated;
+            if (activated)
+                sprite.sprite = activated;
+            else
+                Debug.LogWarning("no activated sprite asign to a button");
             if (onActivate)
             {
                 audio.clip = onActivate;
@@ -59,7 +61,8 @@ public class Button : MonoBehaviour
         playersOnButton--;
         if (playersOnButton < numOfPlayerReq)
         {
-            sprite.sprite = deactivated;
+            if(deactivated)
+                sprite.sprite = deactivated;
             if (onDeactivate)
             {
                 audio.clip = onDeactivate;
