@@ -7,7 +7,7 @@ using UnityEngine;
 public class LogicGateControler : MonoBehaviour
 {
     [SerializeField]
-    ButtonLisener[] ButtonLisener;
+    Button[] ButtonLisener;
 
     int totalActive = 0;
     int totalPlates;
@@ -36,7 +36,7 @@ public class LogicGateControler : MonoBehaviour
 
         totalPlates = ButtonLisener.Length;
 
-        foreach (ButtonLisener e in ButtonLisener)
+        foreach (Button e in ButtonLisener)
         {
             e.OnActivate += CountActive;
             e.OnDeactivate += CountDeactive;

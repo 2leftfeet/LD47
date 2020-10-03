@@ -20,7 +20,8 @@ public class OverlapTrigger : MonoBehaviour
     string targetTag = "Player";
 
     private ArrayList lastColliders = new ArrayList();
-    
+
+
     // Update is called once per frame
     void FixedUpdate()
     { 
@@ -51,7 +52,6 @@ public class OverlapTrigger : MonoBehaviour
                 if (!same)
                 {
                     OnTriggerEnter();
-                    Debug.Log("Enter");
                 }
             }
         }
@@ -70,7 +70,6 @@ public class OverlapTrigger : MonoBehaviour
             if (!foundSame)
             {
                 OnTriggerExit();
-                Debug.Log("Exit");
             }
         }
 
