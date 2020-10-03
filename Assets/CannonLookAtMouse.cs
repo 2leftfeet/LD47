@@ -9,6 +9,8 @@ public class CannonLookAtMouse : MonoBehaviour
     public float distanceFromCharacter;
     public Camera camera;
 
+    [HideInInspector] public bool backwards;
+
     void Update()
     {
         Vector3 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
@@ -23,10 +25,12 @@ public class CannonLookAtMouse : MonoBehaviour
         if(dir.x > 0)
         {
             transform.localScale = new Vector3(-1, 1 ,1);
+            backwards = true;
         }
         else
         {
             transform.localScale = new Vector3(1, 1 ,1);
+            backwards = false;
         }
     }
 }
