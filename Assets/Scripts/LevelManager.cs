@@ -62,7 +62,8 @@ public class LevelManager : MonoBehaviour
     void StartLevel()
     {
         LoopManager.Instance.StartReplays();
-        SpawnPosition.Instance.SpawnPlayer();
+        var go = SpawnPosition.Instance.SpawnPlayer();
+        CinemachineWrapper.Instance.AssignNewTarget(go.transform);
     }
 
     void ResetLevel()
