@@ -4,11 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : SingletonBehavior<LevelManager>
 {
-    public static LevelManager Instance => instance;
-    private static LevelManager instance;
-
     [SerializeField] 
     private bool isDebug;
     
@@ -16,21 +13,6 @@ public class LevelManager : MonoBehaviour
     private SceneData[] levelData = null;
     private int currLevelIndex = 0;
     
-    // Start is called before the first frame update
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Debug.LogError($"This is not okie dokie, two {GetType().ToString()} exist");
-        }
-        
-        DontDestroyOnLoad(gameObject);
-    }
-
     private void Start()
     {
         // LoadLevel(0);
