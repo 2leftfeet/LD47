@@ -4,17 +4,38 @@ using UnityEngine;
 
 public class OverlapTrigger : MonoBehaviour
 {
-    public event System.Action OnTriggerEnter = delegate { };
-    public event System.Action OnTriggerExit = delegate { };
+    
+    public event System.Action<Collider2D> OnTriggerEnter = delegate { };
+    public event System.Action<Collider2D> OnTriggerExit = delegate { };
+    public event System.Action<Collider2D> OnTriggerStay = delegate { };
 
+    private enum ColliderType
+    {
+        circle,
+        box
+    }
+
+    [SerializeField]
+    ColliderType colliderType = ColliderType.circle;
+
+    [Header("Circle settings")]
+    [SerializeField]
+    float radius = 1.0f;
+
+    [Header("Box settings")]
+
+    [SerializeField]
+    float sizeX = 1f;
+
+    [SerializeField]
+    float sizeY = 1f;
+
+    [Header("Combined settings")]
     [SerializeField]
     LayerMask layer;// = LayerMask.GetMask("Everything");
 
     [SerializeField]
-    Vector2 positionOffset = new Vector2(0f,0f);
-    
-    [SerializeField]
-    float radius = 1.0f;
+    Vector2 positionOffset = new Vector2(0f, 0f);
 
     [SerializeField]
     string targetTag = "Player";
@@ -28,9 +49,16 @@ public class OverlapTrigger : MonoBehaviour
 
         ArrayList filteredColliders = new ArrayList();
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(gameObject.transform.position.x,gameObject.transform.position.y) + positionOffset, radius, layer);
+        Collider2D[] colliders;
 
-
+        if (colliderType == ColliderType.circle)
+        {
+            colliders = Physics2D.OverlapCircleAll(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y) + positionOffset, radius, layer);
+        }
+        else
+        {
+            colliders = Physics2D.OverlapBoxAll(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y) + positionOffset, new Vector2(sizeX, sizeY), 0f, layer);
+        }
 
         foreach (Collider2D entity in colliders)
         {
@@ -49,9 +77,10 @@ public class OverlapTrigger : MonoBehaviour
                     }
                 }
                 filteredColliders.Add(entity);
+                OnTriggerStay(entity);
                 if (!same)
                 {
-                    OnTriggerEnter();
+                    OnTriggerEnter(entity);
                 }
             }
         }
@@ -69,7 +98,7 @@ public class OverlapTrigger : MonoBehaviour
             }
             if (!foundSame)
             {
-                OnTriggerExit();
+                OnTriggerExit(old);
             }
         }
 
@@ -82,7 +111,14 @@ public class OverlapTrigger : MonoBehaviour
     {
         // Draw a yellow sphere at the transform's position
         Gizmos.color = Color.green;
+        if (colliderType == ColliderType.circle)
+        {
+            Gizmos.DrawWireSphere(transform.position + new Vector3(positionOffset.x, positionOffset.y, 0f), radius);
+        }
+        else
+        {
+            Gizmos.DrawWireCube(transform.position + new Vector3(positionOffset.x, positionOffset.y, 0f),new Vector3(sizeX, sizeY, 1f));
+        }
         
-        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
