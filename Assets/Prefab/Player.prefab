@@ -1929,6 +1929,7 @@ MonoBehaviour:
   armRoot: {fileID: 3530309233483606379}
   distanceFromCharacter: 20
   scale: 0.4
+  mousePosTrackingInterval: 60
   backwards: 0
 --- !u!95 &4438972307335608977
 Animator:
@@ -2052,6 +2053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currFixedFrame: 0
   currIndex: 0
+  currMouseIndex: 0
 --- !u!114 &-5212293158608118443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2064,7 +2066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2233391317ee8ac4289068c10303d70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
+  deathMaterial: {fileID: 2100000, guid: aecee06fc45ebb54db895d0c1077bced, type: 2}
 --- !u!114 &1500552275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2077,9 +2079,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce0f2f372c9fa4e8f9374f8c300ee000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
-  deathMaterial: {fileID: 2100000, guid: aecee06fc45ebb54db895d0c1077bced, type: 2}
->>>>>>> 2438e2812eb5a320afef5ba0df1a65a7c4ae4695
 --- !u!1 &9052866053783210843
 GameObject:
   m_ObjectHideFlags: 0
