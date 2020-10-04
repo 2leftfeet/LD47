@@ -110,10 +110,10 @@ TextureImporter:
       name: StartButton_0
       rect:
         serializedVersion: 2
-        x: 669
+        x: 528
         y: 532
-        width: 581
-        height: 157
+        width: 874
+        height: 197
       alignment: 9
       pivot: {x: 0.4825704, y: 0.5967512}
       border: {x: 0, y: 0, z: 0, w: 0}

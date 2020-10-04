@@ -107,12 +107,12 @@ TextureImporter:
       name: QuitButton_0
       rect:
         serializedVersion: 2
-        x: 837
-        y: 525
-        width: 250
-        height: 142
+        x: 786
+        y: 516
+        width: 350
+        height: 174
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
