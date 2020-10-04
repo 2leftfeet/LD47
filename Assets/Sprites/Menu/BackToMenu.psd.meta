@@ -1,7 +1,31 @@
 fileFormatVersion: 2
-guid: 9bf5b5aa54dc441fdb7d43211dcaa934
+guid: 16eecfd21df554e85a239c9d3f0fd0b9
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 4878163031992282271
+    second: BackToMenu_0
+  - first:
+      213: -8652829015722472372
+    second: BackToMenu_1
+  - first:
+      213: 2805909455754755505
+    second: BackToMenu_2
+  - first:
+      213: 6911812953920422242
+    second: BackToMenu_3
+  - first:
+      213: 1924842345134847399
+    second: BackToMenu_4
+  - first:
+      213: -3444103174339693998
+    second: BackToMenu_5
+  - first:
+      213: -3136626680433301967
+    second: BackToMenu_6
+  - first:
+      213: 2161711613428810857
+    second: BackToMenu_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -41,12 +65,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -99,7 +123,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BackToMenu_0
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 537
+        width: 691
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9ca7569e67b2b340800000000000000
+      internalID: 4878163031992282271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -112,7 +157,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

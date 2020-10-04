@@ -1396,7 +1396,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
 --- !u!1001 &1791697048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1456,10 +1455,6 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 89847398fc4314faa9adbf2ed0a38ced, type: 3}
 --- !u!1 &2044081860
 GameObject:
-=======
---- !u!1001 &2208621847827004504
-PrefabInstance:
->>>>>>> 0f21e40916b3645bc158ff5406e3491c175ff3fe
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
