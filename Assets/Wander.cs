@@ -87,7 +87,9 @@ public class Wander : MonoBehaviour
     {
         moving = false;
         movingBack = false;
-        prevPosition = transform.position;        
+        prevPosition = transform.position;
+        if(animator)
+            animator.SetBool("Running", false);
         transform.localScale = startScale;
         FOVpivot.transform.rotation = initialPivotRot;
         delayTimer = 0.0f;
