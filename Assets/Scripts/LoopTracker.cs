@@ -11,8 +11,16 @@ public class LoopTracker : MonoBehaviour
         public int CapturedFrame;
     }
 
+    struct MouseEntry
+    {
+        public Vector3 MousePos;
+        public int CapturedFrame;
+    }
+
     // Thought to use Queue here but we need to retain the actions between loops
     private List<ActionEntry> actionEntries = new List<ActionEntry>(1024);
+
+    private List<MouseEntry> mouseEntries = new List<MouseEntry>();
 
     private Vector3 startingPos;
     
@@ -22,6 +30,9 @@ public class LoopTracker : MonoBehaviour
     private bool isReplaying = false;
     public int currFixedFrame = 0;
     public int currIndex = 0;
+    public int currMouseIndex = 0;
+
+    private CannonLookAtMouse cannon;
 
     private void Awake()
     {
@@ -29,6 +40,8 @@ public class LoopTracker : MonoBehaviour
         
         LoopManager.StartReplay += StartReplay;
         LoopManager.ResetReplay += Reset;
+
+        cannon = GetComponent<CannonLookAtMouse>();
     }
 
     private void FixedUpdate()
@@ -49,6 +62,18 @@ public class LoopTracker : MonoBehaviour
                 
             }
         }
+
+        if(isReplaying && mouseEntries.Count > currMouseIndex + 1)
+        {
+            MouseEntry me = mouseEntries[currMouseIndex];
+            MouseEntry meNext = mouseEntries[currMouseIndex + 1];
+            cannon.LookAtPoint(Vector3.Lerp(me.MousePos, meNext.MousePos, (float)(currFixedFrame - me.CapturedFrame) / meNext.CapturedFrame - me.CapturedFrame));
+
+            if(currFixedFrame > meNext.CapturedFrame)
+            {
+                currMouseIndex++;
+            }
+        }
         
         // Do this AT THE END of the frame
         currFixedFrame++;
@@ -63,6 +88,15 @@ public class LoopTracker : MonoBehaviour
         });
     }
 
+    public void RegisterMousePos(Vector3 mousePos)
+    {
+        mouseEntries.Add(new MouseEntry
+        {
+            MousePos = mousePos,
+            CapturedFrame = currFixedFrame
+        });
+    }
+
     public void StartReplay()
     {   
         MarkAsPlayerControlled(false);
@@ -73,7 +107,8 @@ public class LoopTracker : MonoBehaviour
     {
         gameObject.SetActive(true);
         
-        transform.position = startingPos;
+        // Add vector forward to move dead 
+        transform.position = startingPos + Vector3.forward;
         isReplaying = false;
         currFixedFrame = 0;
         currIndex = 0;
@@ -84,6 +119,7 @@ public class LoopTracker : MonoBehaviour
         isPlayerControlled = value;
         // TODO: move somewhere else mby
         GetComponent<PlayerInput>().enabled = value;
+        GetComponent<CannonLookAtMouse>().enabled = value;
     }
 
     private void OnDestroy()

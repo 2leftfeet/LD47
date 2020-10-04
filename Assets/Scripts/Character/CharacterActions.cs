@@ -33,6 +33,23 @@ public class JumpAction : InputAction
     }
 }
 
+public class ShootAction: InputAction
+{
+    public Vector3 mousePosWorld;
+    private CannonLookAtMouse cannonScript;
+
+    public ShootAction(CannonLookAtMouse _cannon, Vector3 _mousePosWorld)
+    {
+        cannonScript = _cannon;
+        mousePosWorld = _mousePosWorld;
+    }
+
+    public override void PlayAction()
+    {
+        cannonScript.ShootAtPoint(mousePosWorld);
+    }
+}
+
 public class KysAction : InputAction
 {
     private CharController cc;
