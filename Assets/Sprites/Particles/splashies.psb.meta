@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0976dfc2a5a8d1047b1fcbf443c673f2
+guid: afc64916eae445942a7ddda8266a0148
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -11,7 +11,7 @@ ScriptedImporter:
   textureImporterSettings:
     alphaSource: 1
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     fadeOut: 0
     borderMipMap: 0
     mipMapsPreserveCoverage: 0
@@ -27,8 +27,8 @@ ScriptedImporter:
     vTOnly: 0
     nPOTScale: 1
     sRGBTexture: 1
-    spriteMode: 1
-    spriteExtrude: 0
+    spriteMode: 2
+    spriteExtrude: 1
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
@@ -44,7 +44,7 @@ ScriptedImporter:
     textureShape: 1
     singleChannelComponent: 0
     ignorePngGamma: 0
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 0
@@ -65,18 +65,18 @@ ScriptedImporter:
     textureFormatSet: 0
     applyGammaDecoding: 0
   spriteImportData:
-  - name: car_1
+  - name: 
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0, y: 0}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 0
       y: 0
-      width: 2048
-      height: 2048
-    spriteID: abcab9f40010e49abb9ec8f91c68e6e2
+      width: 0
+      height: 0
+    spriteID: 
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -89,18 +89,18 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
-  - name: car_door
+  - name: Layer 5
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 2058
+      x: 281
       y: 4
-      width: 696
-      height: 700
-    spriteID: 104e1b608904b0e4e8f91b944b09047d
+      width: 171
+      height: 170
+    spriteID: f1dcf68caac4c564fb01df84a7f9fb1f
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -110,19 +110,19 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1635, y: -666}
-  - name: weels
+    uvTransform: {x: -469, y: -266}
+  - name: Layer 6
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 2058
-      y: 712
-      width: 1440
-      height: 293
-    spriteID: d72797a74fbc5564ba1cc0b910b513c8
+      x: 4
+      y: 200
+      width: 211
+      height: 192
+    spriteID: 9177dc39d98aa7840a82af03b045c249
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -132,8 +132,74 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 1836, y: 350}
-  - name: car
+    uvTransform: {x: -395, y: -95}
+  - name: Layer 4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 400
+      width: 194
+      height: 202
+    spriteID: 0764b84fd6ecaf74eb83bcd2cf162f9f
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -83, y: 110}
+  - name: Layer 3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 779
+      width: 191
+      height: 171
+    spriteID: e9ee1e281dbfb8b499bbf98ff6cab48e
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -714, y: 167}
+  - name: Layer 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 610
+      width: 215
+      height: 161
+    spriteID: 7e902342aa7dbab4a86dc5e35618b0e4
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -421, y: -9}
+  - name: Layer 1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -142,9 +208,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 2046
-      height: 1120
-    spriteID: b7e147a481964ad41bfcb776bf0bd5b8
+      width: 269
+      height: 188
+    spriteID: f94868c4295079b41ac29f3c81d7e8e3
     internalID: 0
     spriteBone: []
     spriteOutline: []
@@ -154,57 +220,67 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: -478}
-  platformSettings:
-  - name: Default
-    overridden: 1
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    androidETC2FallbackOverride: 0
+    uvTransform: {x: -58, y: -602}
+  platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
-  importedTextureWidth: 2048
-  importedTextureHeight: 2048
-  documentSize: {x: 2048, y: 2048}
+  importedTextureWidth: 512
+  importedTextureHeight: 1024
+  documentSize: {x: 1024, y: 1024}
   paperDollMode: 0
   keepDupilcateSpriteName: 0
   spriteCategoryList:
     categories: []
-  textureActualWidth: 2048
-  textureActualHeight: 2048
+  textureActualWidth: 512
+  textureActualHeight: 1024
   spritePackingTag: 
   resliceFromLayer: 0
   characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
-  - name: car_door
-    spriteName: car_door
+  - name: Layer 5
+    spriteName: Layer 5
     isGroup: 0
     parentIndex: -1
-    spriteID: 104e1b608904b0e4e8f91b944b09047d
-    layerID: 14
-    mosaicPosition: {x: 2058, y: 4}
-  - name: weels
-    spriteName: weels
+    spriteID: f1dcf68caac4c564fb01df84a7f9fb1f
+    layerID: 7
+    mosaicPosition: {x: 281, y: 4}
+  - name: Layer 6
+    spriteName: Layer 6
     isGroup: 0
     parentIndex: -1
-    spriteID: d72797a74fbc5564ba1cc0b910b513c8
-    layerID: 12
-    mosaicPosition: {x: 2058, y: 712}
-  - name: car
-    spriteName: car
+    spriteID: 9177dc39d98aa7840a82af03b045c249
+    layerID: 8
+    mosaicPosition: {x: 4, y: 200}
+  - name: Layer 4
+    spriteName: Layer 4
     isGroup: 0
     parentIndex: -1
-    spriteID: b7e147a481964ad41bfcb776bf0bd5b8
-    layerID: 10
+    spriteID: 0764b84fd6ecaf74eb83bcd2cf162f9f
+    layerID: 6
+    mosaicPosition: {x: 4, y: 400}
+  - name: Layer 3
+    spriteName: Layer 3
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e9ee1e281dbfb8b499bbf98ff6cab48e
+    layerID: 5
+    mosaicPosition: {x: 4, y: 779}
+  - name: Layer 2
+    spriteName: Layer 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7e902342aa7dbab4a86dc5e35618b0e4
+    layerID: 4
+    mosaicPosition: {x: 4, y: 610}
+  - name: Layer 1
+    spriteName: Layer 1
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f94868c4295079b41ac29f3c81d7e8e3
+    layerID: 3
     mosaicPosition: {x: 4, y: 4}
   characterData:
     bones: []
@@ -212,7 +288,7 @@ ScriptedImporter:
     dimension: {x: 0, y: 0}
     characterGroups: []
   generateGOHierarchy: 0
-  textureAssetName: car Texture
-  prefabAssetName: car Prefab
-  spriteLibAssetName: car Sprite Lib
+  textureAssetName: splashies Texture
+  prefabAssetName: splashies Prefab
+  spriteLibAssetName: splashies Sprite Lib
   secondarySpriteTextures: []

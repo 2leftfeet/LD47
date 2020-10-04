@@ -20,9 +20,9 @@ public class Button : MonoBehaviour
     SpriteRenderer sprite;
 
     [Header("Sprites")]
-    [SerializeField] Sprite activated;
-    [SerializeField] Sprite deactivated;
-
+    [SerializeField] Transform movingPart;
+    [SerializeField] float moveAmount = 0.2f;
+    
     [Header("Audio Clips")]
     [SerializeField] AudioClip onActivate;
     [SerializeField] AudioClip onDeactivate;
@@ -38,15 +38,13 @@ public class Button : MonoBehaviour
         trigger.OnTriggerExit += Exit;
     }
         
-    void Enter()
+    void Enter(Collider2D other)
     {
         playersOnButton++;
         if (playersOnButton == numOfPlayerReq)
         {
-            if (activated)
-                sprite.sprite = activated;
-            else
-                Debug.LogWarning("no activated sprite asign to a button");
+            if (movingPart)
+                movingPart.Translate(new Vector3(0f, -moveAmount, 0f));
             if (onActivate)
             {
                 audio.clip = onActivate;
@@ -56,13 +54,13 @@ public class Button : MonoBehaviour
         }
     }
 
-    private void Exit()
+    private void Exit(Collider2D other)
     {
         playersOnButton--;
         if (playersOnButton < numOfPlayerReq)
         {
-            if(deactivated)
-                sprite.sprite = deactivated;
+            if(movingPart)
+                movingPart.Translate(new Vector3(0f, moveAmount, 0f));
             if (onDeactivate)
             {
                 audio.clip = onDeactivate;

@@ -107,7 +107,8 @@ public class LoopTracker : MonoBehaviour
     {
         gameObject.SetActive(true);
         
-        transform.position = startingPos;
+        // Add vector forward to move dead 
+        transform.position = startingPos + Vector3.forward;
         isReplaying = false;
         currFixedFrame = 0;
         currIndex = 0;
