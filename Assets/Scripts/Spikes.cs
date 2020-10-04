@@ -17,6 +17,6 @@ public class Spikes : MonoBehaviour
     void KillPlayer(Collider2D player)
     {
         //call a kill on a necesery player
-        GetComponent<CharController>().TriggerDeath();
+        player.gameObject.GetComponent<CharController>().TriggerDeath();
     }
 }
