@@ -7,6 +7,7 @@ public class PlayerInput : MonoBehaviour
     private PhysicsController player;
     private CharController cc;
     private LoopTracker loopTracker;
+    private CannonLookAtMouse cannon;
 
     float previousX = 0.0f;
 
@@ -22,6 +23,7 @@ public class PlayerInput : MonoBehaviour
         player = GetComponent<PhysicsController>();
         cc = GetComponent<CharController>();
         loopTracker = GetComponent<LoopTracker>();
+        cannon = GetComponent<CannonLookAtMouse>();
     }
 
     void Update()
