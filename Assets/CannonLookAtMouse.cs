@@ -5,6 +5,7 @@ using UnityEngine;
 public class CannonLookAtMouse : MonoBehaviour
 {
     public GameObject projectile;
+    public GameObject splashEffect;
     public Transform shootPoint;
     public Transform ikTarget;
     public Transform armRoot;
@@ -12,7 +13,7 @@ public class CannonLookAtMouse : MonoBehaviour
     Camera camera;
 
     public float scale;
-    public int mousePosTrackingInterval = 60;
+    public int mousePosTrackingInterval = 10;
     int currFixedFrame = 0;
 
     [HideInInspector] public bool backwards;
@@ -55,7 +56,9 @@ public class CannonLookAtMouse : MonoBehaviour
         if(currFixedFrame % mousePosTrackingInterval == 0)
         {
             loopTracker.RegisterMousePos(mousePos);
+            Debug.Log("Registering mouse pos at fixed frame: " + currFixedFrame);
         }
+        currFixedFrame++;
     }
 
     public void LookAtPoint(Vector3 mousePos)
@@ -85,5 +88,7 @@ public class CannonLookAtMouse : MonoBehaviour
 
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, rotatedDir);
         var proj = Instantiate(projectile, shootPoint.position, rotation);
+
+        Instantiate(splashEffect, shootPoint.position, splashEffect.transform.rotation * rotation);
     }
 }

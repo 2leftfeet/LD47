@@ -6,6 +6,11 @@ public class ProjectileMover : MonoBehaviour
 {
     public float speed;
 
+    void Awake()
+    {
+        Destroy(this.gameObject, 10.0f);
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
