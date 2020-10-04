@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class SingletonBehavior<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private void Awake()
+    protected void Awake()
     {
         instance = this.GetComponent<T>();
         DontDestroyOnLoad(gameObject);

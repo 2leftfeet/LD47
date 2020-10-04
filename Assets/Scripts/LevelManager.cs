@@ -12,6 +12,30 @@ public class LevelManager : SingletonBehavior<LevelManager>
     [SerializeField]
     private SceneData[] levelData = null;
     private int currLevelIndex = 0;
+
+    void Awake()
+    {
+        base.Awake();
+        if(isDebug && Instance != null)
+            Destroy(gameObject);
+    }
+    
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneManagerOnsceneLoaded;
+        IntroBroadcaster.HasFinished += IntroBroadcasterOnHasFinished;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManagerOnsceneLoaded;
+        IntroBroadcaster.HasFinished -= IntroBroadcasterOnHasFinished;
+    }
+
+    private void SceneManagerOnsceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        
+    }
     
     private void Start()
     {
@@ -24,6 +48,9 @@ public class LevelManager : SingletonBehavior<LevelManager>
     public void LoadNextLevel()
     {
         currLevelIndex++;
+        if (currLevelIndex >= levelData.Length)
+            currLevelIndex = 0;
+        
         LoadLevel(currLevelIndex);
     }
 
@@ -34,7 +61,21 @@ public class LevelManager : SingletonBehavior<LevelManager>
 
     public void TriggerVictory()
     {
-        
+        IEnumerator sequence = VictorySequence();
+        StartCoroutine(sequence);
+    }
+
+    IEnumerator VictorySequence()
+    {
+        FadeManager.Instance.FadeOut(2f);
+        yield return new WaitForSeconds(2f);
+        LoadNextLevel();
+        FadeManager.Instance.FadeIn(2f);
+    }
+    
+    private void IntroBroadcasterOnHasFinished()
+    {
+        StartLevel();
     }
     
     public void TriggerDeath()
