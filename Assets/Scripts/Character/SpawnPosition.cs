@@ -23,8 +23,8 @@ public class SpawnPosition : MonoBehaviour
         }
     }
 
-    public void SpawnPlayer()
+    public GameObject SpawnPlayer()
     {
-        Instantiate(playerPrefab, transform.position, Quaternion.identity);
+        return Instantiate(playerPrefab, transform.position, Quaternion.identity);
     }
 }
