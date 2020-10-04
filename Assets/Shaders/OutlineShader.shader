@@ -1,4 +1,4 @@
-﻿Shader "Hidden/Sprite Outline"
+﻿Shader "Custom/Sprite Outline"
 {
     Properties
     {
@@ -48,8 +48,19 @@
     {
         Pass
         {
-            ZTest Always Cull Off ZWrite Off
-            Fog { Mode off }      
+		    Tags
+		    { 
+			    "Queue"="Transparent" 
+			    "IgnoreProjector"="True" 
+			    "RenderType"="Transparent" 
+			    "PreviewType"="Plane"
+			    "CanUseSpriteAtlas"="True"
+		    }
+            
+            Cull Off
+			Lighting Off
+			ZWrite Off
+			Blend One OneMinusSrcAlpha     
             CGPROGRAM
             #pragma vertex vert_img
             #pragma fragment frag
