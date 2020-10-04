@@ -39,7 +39,7 @@ public class FieldOfView : MonoBehaviour
 	}
 
 	void LateUpdate() {
-		//DrawFieldOfView();
+		DrawFieldOfView();
 	}
 
 	void DrawFieldOfView() {

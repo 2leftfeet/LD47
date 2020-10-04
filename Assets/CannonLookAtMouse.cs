@@ -5,6 +5,7 @@ using UnityEngine;
 public class CannonLookAtMouse : MonoBehaviour
 {
     public GameObject projectile;
+    public GameObject splashEffect;
     public Transform shootPoint;
     public Transform ikTarget;
     public Transform armRoot;
@@ -12,7 +13,9 @@ public class CannonLookAtMouse : MonoBehaviour
     Camera camera;
 
     public float scale;
-    public int mousePosTrackingInterval = 60;
+    public int mousePosTrackingInterval = 10;
+    public float reloadTime = 0.5f;
+    float reloadTimer = 0.0f;
     int currFixedFrame = 0;
 
     [HideInInspector] public bool backwards;
@@ -20,6 +23,7 @@ public class CannonLookAtMouse : MonoBehaviour
     bool createShootAction = false;
     Vector3 mousePos;
     LoopTracker loopTracker;
+
 
     void Awake()
     {
@@ -30,10 +34,12 @@ public class CannonLookAtMouse : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButton(0) && reloadTimer > reloadTime)
         {
             createShootAction = true;
+            reloadTimer = 0.0f;
         }
+        reloadTimer += Time.deltaTime;
         
         mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0.0f;
@@ -55,7 +61,9 @@ public class CannonLookAtMouse : MonoBehaviour
         if(currFixedFrame % mousePosTrackingInterval == 0)
         {
             loopTracker.RegisterMousePos(mousePos);
+            //Debug.Log("Registering mouse pos at fixed frame: " + currFixedFrame);
         }
+        currFixedFrame++;
     }
 
     public void LookAtPoint(Vector3 mousePos)
@@ -85,5 +93,7 @@ public class CannonLookAtMouse : MonoBehaviour
 
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, rotatedDir);
         var proj = Instantiate(projectile, shootPoint.position, rotation);
+
+        Instantiate(splashEffect, shootPoint.position, splashEffect.transform.rotation * rotation);
     }
 }

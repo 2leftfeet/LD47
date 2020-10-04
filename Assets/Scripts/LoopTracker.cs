@@ -70,8 +70,9 @@ public class LoopTracker : MonoBehaviour
         {
             MouseEntry me = mouseEntries[currMouseIndex];
             MouseEntry meNext = mouseEntries[currMouseIndex + 1];
-            cannon.LookAtPoint(Vector3.Lerp(me.MousePos, meNext.MousePos, (float)(currFixedFrame - me.CapturedFrame) / meNext.CapturedFrame - me.CapturedFrame));
-
+            cannon.LookAtPoint(Vector3.Lerp(me.MousePos, meNext.MousePos, (float)(currFixedFrame - me.CapturedFrame) / (meNext.CapturedFrame - me.CapturedFrame)));
+            //Debug.Log($"Lerping from mousepos index {currMouseIndex} to {currMouseIndex + 1}. t = {(float)(currFixedFrame - me.CapturedFrame) / meNext.CapturedFrame - me.CapturedFrame}");
+            //Debug.Log($"Current frame {currFixedFrame}, index frame{me.CapturedFrame}, index + 1 frame {meNext.CapturedFrame}");
             if(currFixedFrame > meNext.CapturedFrame)
             {
                 currMouseIndex++;
