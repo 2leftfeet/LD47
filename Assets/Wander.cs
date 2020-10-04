@@ -18,16 +18,19 @@ public class Wander : MonoBehaviour
     Animator animator;
     private float minDistance = 0.25f;
 
-    // Start is called before the first frame update
+    public float delay = 5f;
+    public float speed = 5f;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         prevPosition = transform.position;
-        coroutine = WanderWithDelay(5f);
+        coroutine = WanderWithDelay(delay);
 		StartCoroutine(coroutine);
     }
 
     IEnumerator WanderWithDelay(float delay) {
+        yield return new WaitForSeconds (delay);
         while (true) {
             if(movingBack){
                 targetPosition = prevPosition;
@@ -50,7 +53,7 @@ public class Wander : MonoBehaviour
         if(moving){
             if(Vector2.Distance(transform.position, targetPosition) > minDistance)
                 {
-                    Vector2 pos = Vector2.Lerp ((Vector2)transform.position, (Vector2)targetPosition, Time.fixedDeltaTime);
+                    Vector2 pos = Vector2.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
                     transform.position = new Vector3(pos.x, pos.y, transform.position.y);
                 }
             else {
