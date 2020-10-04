@@ -4,33 +4,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager : SingletonBehavior<LevelManager>
 {
-    public static LevelManager Instance => instance;
-    private static LevelManager instance;
-
     [SerializeField] 
     private bool isDebug;
     
     [SerializeField]
     private SceneData[] levelData = null;
     private int currLevelIndex = 0;
-    
-    // Start is called before the first frame update
+
     void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Debug.LogError($"This is not okie dokie, two {GetType().ToString()} exist");
-        }
-        
-        DontDestroyOnLoad(gameObject);
+        base.Awake();
+        if(isDebug && Instance != null)
+            Destroy(gameObject);
+    }
+    
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneManagerOnsceneLoaded;
+        IntroBroadcaster.HasFinished += IntroBroadcasterOnHasFinished;
     }
 
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManagerOnsceneLoaded;
+        IntroBroadcaster.HasFinished -= IntroBroadcasterOnHasFinished;
+    }
+
+    private void SceneManagerOnsceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        
+    }
+    
     private void Start()
     {
         // LoadLevel(0);
@@ -42,6 +48,9 @@ public class LevelManager : MonoBehaviour
     public void LoadNextLevel()
     {
         currLevelIndex++;
+        if (currLevelIndex >= levelData.Length)
+            currLevelIndex = 0;
+        
         LoadLevel(currLevelIndex);
     }
 
@@ -52,7 +61,21 @@ public class LevelManager : MonoBehaviour
 
     public void TriggerVictory()
     {
-        
+        IEnumerator sequence = VictorySequence();
+        StartCoroutine(sequence);
+    }
+
+    IEnumerator VictorySequence()
+    {
+        FadeManager.Instance.FadeOut(2f);
+        yield return new WaitForSeconds(2f);
+        LoadNextLevel();
+        FadeManager.Instance.FadeIn(2f);
+    }
+    
+    private void IntroBroadcasterOnHasFinished()
+    {
+        StartLevel();
     }
     
     public void TriggerDeath()
