@@ -98,6 +98,12 @@ public class PhysicsController : MonoBehaviour
         body.Move(velocity * Time.deltaTime);
     }
 
+    public void Reset()
+    {
+        JumpPressed = false;
+        InputX = 0;
+    }
+
     public Vector2 GetVelocity()
     {
         return velocity;
