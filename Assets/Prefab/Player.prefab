@@ -1995,6 +1995,8 @@ MonoBehaviour:
   mousePosTrackingInterval: 10
   reloadTime: 0.5
   backwards: 0
+  shootAudio: {fileID: 8300000, guid: facda82e797f4460fbdf22aeb8aa65ab, type: 3}
+  audioVolume: 0.71
 --- !u!95 &4438972307335608977
 Animator:
   serializedVersion: 3

@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class AudioManager : SingletonBehavior<AudioManager>
 {
+    public static AudioManager Instance => instance;
+    private static AudioManager instance;
+
     private AudioSource audioSource;
 
     void Awake()
@@ -14,13 +17,10 @@ public class AudioManager : SingletonBehavior<AudioManager>
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
-        
-        DontDestroyOnLoad(gameObject);
     }
-
-    public static void PlayClip(AudioClip clip)
+    public static void PlayClip(AudioClip clip,float volume=1)
     {
-        Instance.audioSource.PlayOneShot(clip);
+        instance.audioSource.PlayOneShot(clip,volume);
     }
 
     public static void PlayMusic()

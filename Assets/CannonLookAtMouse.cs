@@ -24,6 +24,10 @@ public class CannonLookAtMouse : MonoBehaviour
     Vector3 mousePos;
     LoopTracker loopTracker;
 
+    public AudioClip shootAudio;
+    [Range(0,1)]
+    public float audioVolume;
+
 
     void Awake()
     {
@@ -56,6 +60,7 @@ public class CannonLookAtMouse : MonoBehaviour
             loopTracker.RegisterAction(action);
             action.PlayAction();
             createShootAction = false;
+            AudioManager.PlayClip(shootAudio,audioVolume);
         }
 
         if(currFixedFrame % mousePosTrackingInterval == 0)
