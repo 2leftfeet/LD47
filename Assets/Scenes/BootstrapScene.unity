@@ -491,7 +491,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDebug: 0
   levelData:
-  - sceneName: 
+  - sceneName: MainMenu
+  - sceneName: Level_1
+  - sceneName: Level_2
 --- !u!4 &1863752050
 Transform:
   m_ObjectHideFlags: 0

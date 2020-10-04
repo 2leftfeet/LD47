@@ -18,18 +18,19 @@ public class LevelManager : SingletonBehavior<LevelManager>
         // LoadLevel(0);
         if(isDebug)
             StartLevel();
+        else LoadLevel(0);
     }
 
-    private void LoadNextLevel()
+    public void LoadNextLevel()
     {
         currLevelIndex++;
         LoadLevel(currLevelIndex);
     }
 
-    private void LoadLevel(int index)
+    public void LoadLevel(int index)
     {
         SceneManager.LoadScene(levelData[currLevelIndex].SceneName, LoadSceneMode.Single);
-    }
+    }   
 
     public void TriggerVictory()
     {
