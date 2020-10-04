@@ -23,6 +23,8 @@ public class FieldOfView : MonoBehaviour
 	Mesh viewMesh;
     private IEnumerator coroutine;
 
+	string targetTag = "Player";
+
 
 	void OnEnable()
     {
@@ -100,15 +102,15 @@ public class FieldOfView : MonoBehaviour
 				float dstToTarget = Vector2.Distance (transform.position, target.position);
 
 				if (!Physics2D.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask)) {
-					if(target.tag == "Player"){
+					if(target.tag == targetTag){
 						Debug.Log("Got em");
+						visibleTargets.Add(target);
 
 						//Reload
 						viewMesh.Clear ();
 						reload.ReloadQueue();
+						target.gameObject.GetComponent<CharController>().TriggerDeath();
 						StopCoroutine(coroutine);
-
-						//Death method here <<--
 					}
 				}
 			}
