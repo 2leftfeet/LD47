@@ -1431,6 +1431,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   FOVpivot: {fileID: 0}
+  delay: 5
+  speed: 5
 --- !u!212 &49830822599157739
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2001,6 +2003,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 734468451, guid: b7724d596cbd647ad800a1153c997788, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1631725953, guid: b7724d596cbd647ad800a1153c997788, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3033767997553534899, guid: b7724d596cbd647ad800a1153c997788, type: 3}
       propertyPath: m_Name
       value: Enemy2
