@@ -10,6 +10,14 @@ public class AudioManager : SingletonBehavior<AudioManager>
 
     private AudioSource audioSource;
 
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
+    }
     public static void PlayClip(AudioClip clip,float volume=1)
     {
         instance.audioSource.PlayOneShot(clip,volume);

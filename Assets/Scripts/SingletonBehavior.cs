@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public abstract class SingletonBehavior<T> : MonoBehaviour where T : MonoBehaviour
 {
@@ -16,13 +17,20 @@ public abstract class SingletonBehavior<T> : MonoBehaviour where T : MonoBehavio
     {
         get
         {
+
             if (instance != null)
             {
                 return instance;
             }
             else
             {
-                return new GameObject(nameof(T)).AddComponent<T>();
+                T lookup = Object.FindObjectOfType<T>();
+                if (lookup != null)
+                    instance = lookup;
+                else
+                    instance = new GameObject(typeof(T).ToString()).AddComponent<T>();
+
+                return instance;
             }
         }
 
