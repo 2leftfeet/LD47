@@ -8,6 +8,7 @@ public abstract class SingletonBehavior<T> : MonoBehaviour where T : MonoBehavio
 {
     protected void Awake()
     {
+        Debug.Log(gameObject.name);
         instance = this.GetComponent<T>();
         DontDestroyOnLoad(gameObject);
     }
