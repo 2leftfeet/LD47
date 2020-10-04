@@ -17,6 +17,16 @@ public class PlayerAnimations : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKey(KeyCode.E))
+        {
+            animator.SetBool("Pickup", true);
+        }
+        else
+        {
+            animator.SetBool("Pickup", false);
+        }
+
+
         Vector2 velocity = player.GetVelocity();
         animator.SetBool("Falling", velocity.y < 0.0f);
 

@@ -30,7 +30,10 @@ public class EnemyHealth : MonoBehaviour
     {
         transform.position = startPosition;
         gameObject.SetActive(true);
-        wander.Reset();
+        if(wander.enabled)
+        {
+            wander.Reset();
+        }
         reload.Reset();
     }
 

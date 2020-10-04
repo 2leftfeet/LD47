@@ -41,7 +41,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3033767997553534899, guid: b7724d596cbd647ad800a1153c997788, type: 3}
       propertyPath: m_Name
-      value: Enemy_LookingRight
+      value: Enemy_LookingRight Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3033767997553534900, guid: b7724d596cbd647ad800a1153c997788, type: 3}
+      propertyPath: fallLayermask.m_Bits
+      value: 1280
       objectReference: {fileID: 0}
     - target: {fileID: 3033767997553534907, guid: b7724d596cbd647ad800a1153c997788, type: 3}
       propertyPath: m_LocalPosition.x

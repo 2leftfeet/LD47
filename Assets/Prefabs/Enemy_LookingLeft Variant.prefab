@@ -83,9 +83,13 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 2459235192755773835, guid: 4223e6900a67d4eeeaf3db92d6ff79e1, type: 3}
+      propertyPath: fallLayermask.m_Bits
+      value: 1280
+      objectReference: {fileID: 0}
     - target: {fileID: 2459235192755773836, guid: 4223e6900a67d4eeeaf3db92d6ff79e1, type: 3}
       propertyPath: m_Name
-      value: Enemy_LookingLeft
+      value: Enemy_LookingLeft Variant
       objectReference: {fileID: 0}
     - target: {fileID: 2459235192907069711, guid: 4223e6900a67d4eeeaf3db92d6ff79e1, type: 3}
       propertyPath: m_Bounds.m_Center.x
