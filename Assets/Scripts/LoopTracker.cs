@@ -19,8 +19,7 @@ public class LoopTracker : MonoBehaviour
 
     // Thought to use Queue here but we need to retain the actions between loops
     private List<ActionEntry> actionEntries = new List<ActionEntry>(1024);
-
-    private List<MouseEntry> mouseEntries = new List<MouseEntry>();
+    private List<MouseEntry> mouseEntries = new List<MouseEntry>(1024);
 
     private Vector3 startingPos;
     
@@ -33,6 +32,7 @@ public class LoopTracker : MonoBehaviour
     public int currMouseIndex = 0;
 
     private CannonLookAtMouse cannon;
+    private PhysicsController physController;
 
     private void Awake()
     {
@@ -42,10 +42,12 @@ public class LoopTracker : MonoBehaviour
         LoopManager.ResetReplay += Reset;
 
         cannon = GetComponent<CannonLookAtMouse>();
+        physController = GetComponent<PhysicsController>();
     }
 
     private void FixedUpdate()
     {
+        // Actions
         if (isReplaying && actionEntries.Count > currIndex)
         {
             ActionEntry ae = actionEntries[currIndex];
@@ -63,6 +65,7 @@ public class LoopTracker : MonoBehaviour
             }
         }
 
+        // Mouse Entries
         if(isReplaying && mouseEntries.Count > currMouseIndex + 1)
         {
             MouseEntry me = mouseEntries[currMouseIndex];
@@ -107,6 +110,7 @@ public class LoopTracker : MonoBehaviour
     public void Reset()
     {
         gameObject.SetActive(true);
+        physController.Reset();
         
         // Add vector forward to move dead 
         transform.position = startingPos + Vector3.forward;
