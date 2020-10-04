@@ -60,7 +60,7 @@ public class CannonLookAtMouse : MonoBehaviour
             loopTracker.RegisterAction(action);
             action.PlayAction();
             createShootAction = false;
-            AudioManager.PlayClip(shootAudio,audioVolume);
+            AudioManager.PlayClip(shootAudio,audioVolume,0.3f);
         }
 
         if(currFixedFrame % mousePosTrackingInterval == 0)
