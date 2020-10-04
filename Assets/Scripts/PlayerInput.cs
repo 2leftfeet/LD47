@@ -58,6 +58,13 @@ public class PlayerInput : MonoBehaviour
         }
     }
 
+    public void Reset()
+    {
+        createKys = false;
+        createJump = false;
+        createHorizontal = false;
+    }
+    
     void FixedUpdate()
     {
         if(createHorizontal)
@@ -75,6 +82,5 @@ public class PlayerInput : MonoBehaviour
             action.PlayAction();
             createJump = false;
         }
-        
     }
 }
