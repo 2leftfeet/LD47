@@ -16,6 +16,7 @@ public struct CollisionState{
 public class BodyMovement : MonoBehaviour
 {
     [SerializeField] LayerMask groundLayermask = default;
+    [SerializeField] LayerMask fallLayermask = default;
     [SerializeField] float horizontalSkinWidthRising = 0.01f;
     [SerializeField] float horizontalSkinWidthFalling = 0.01f;
     [SerializeField] float verticalSkinWidth = 0.01f;
@@ -87,6 +88,7 @@ public class BodyMovement : MonoBehaviour
         bool yPositive = ySign > 0.0f;
         Vector2 rayOrigin = yPositive ? rayOrigins.topLeft : rayOrigins.bottomLeftFalling;
         Vector2 rayDir = yPositive ? Vector2.up : Vector2.down;
+        LayerMask layerMask = yPositive ? groundLayermask : fallLayermask;
         float rayLength = Mathf.Abs(vel.y) + verticalSkinWidth;
 
         float raySpacing = yPositive ? verticalRaySpacingRising : verticalRaySpacingFalling;
@@ -96,7 +98,7 @@ public class BodyMovement : MonoBehaviour
 
         for (int i = 0; i < verticalRayCount; i++)
         {
-            var hit = Physics2D.Raycast(rayOrigin + i * raySpacing * Vector2.right, rayDir, rayLength, groundLayermask);
+            var hit = Physics2D.Raycast(rayOrigin + i * raySpacing * Vector2.right, rayDir, rayLength, layerMask);
 
             Debug.DrawRay(vel + rayOrigin + i * raySpacing * Vector2.right, rayDir * rayLength, Color.red);
             if(hit)
