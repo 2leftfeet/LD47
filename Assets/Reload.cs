@@ -6,29 +6,34 @@ public class Reload : MonoBehaviour
 {
 
     public FieldOfView fov;
+
+    public float reloadTime = 3f;
+    float reloadTimer = 0.0f;
+    IEnumerator coroutine;
  
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     public void ReloadQueue(){
-        StartCoroutine("DisableScript");
+        fov.enabled = false;
+        reloadTimer = 0.0f;
     }
 
-    IEnumerator DisableScript()
+    public void Reset()
     {
-        fov.enabled = false;
-
-        yield return new WaitForSeconds(3f);
-
+        reloadTimer = 0.0f;
         fov.enabled = true;
     }
-
     // Update is called once per frame
     void Update()
     {
-        
+        if(fov.enabled == false && reloadTimer > reloadTime)
+        {
+            fov.enabled = true;
+            reloadTimer = 0.0f;
+        }
+        reloadTimer += Time.deltaTime;
     }
 }
