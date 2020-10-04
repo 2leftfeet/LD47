@@ -55,7 +55,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.8405075
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   numOfPlayerReq: 1
   movingPart: {fileID: 8842205022688653125}
-  moveAmount: 0.3
+  moveAmount: 0.1
   onActivate: {fileID: 8300000, guid: a66503560364647d3b2085cd7b5f9f22, type: 3}
   onDeactivate: {fileID: 8300000, guid: 4249dcd64d1ff45a78fdf34086bbee5f, type: 3}
 --- !u!114 &6461606182189832507
@@ -160,11 +160,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 748494d3915324b469bd36c336cee521, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colliderType: 1
+  radius: 3.55
+  sizeX: 1.51
+  sizeY: 0.64
   layer:
     serializedVersion: 2
     m_Bits: 4294967295
-  positionOffset: {x: 0, y: 0}
-  radius: 3.5
+  positionOffset: {x: 0, y: 0.21}
   targetTag: Player
 --- !u!1 &5818605242774023924
 GameObject:
@@ -192,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 5818605242774023924}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 8542624756345804999}
   m_RootOrder: 0
@@ -273,8 +276,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6002449056368864461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.04, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.21, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 8542624756345804999}
   m_RootOrder: 1
