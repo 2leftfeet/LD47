@@ -7,27 +7,60 @@ public class PlayerPickupObject : MonoBehaviour
     public LayerMask pickupablesLayer;
     public float pickupRadius;
     public GameObject pickupRoot;
+    public GameObject dropRoot;
+
+    LoopTracker loopTracker;
+    Collider2D pickedUp;
+    bool carrying = false;
+
+    void Awake()
+    {
+        loopTracker = GetComponent<LoopTracker>();
+    }
+
+    void OnDisable()
+    {
+        DropObject();
+    }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E))
         {
-            var pickupable = Physics2D.OverlapCircle(transform.position, pickupRadius, pickupablesLayer);
-            if(pickupable)
+            if(carrying)
             {
-                PickupObject(pickupable);
+                DropAction da = new DropAction(this);
+                loopTracker.RegisterAction(da);
+                da.PlayAction();
+            }
+            else
+            {
+                PickupAction pa = new PickupAction(this);
+                loopTracker.RegisterAction(pa);
+                pa.PlayAction();
+                
             }
         }
     }
-    void PickupObject(Collider2D pickupable)
+    public void PickupObject()
     {
-        pickupable.transform.position = pickupRoot.transform.position;
-        pickupable.gameObject.layer = 10;
-        pickupable.transform.parent = pickupRoot.transform;
+        var pickupable = Physics2D.OverlapCircle(transform.position, pickupRadius, pickupablesLayer);
+        if(pickupable)
+        {
+            pickupable.transform.position = pickupRoot.transform.position;
+            pickupable.gameObject.layer = 10;
+            pickupable.transform.parent = pickupRoot.transform;
+            pickedUp = pickupable;
+            carrying = true;
+        }
     }
 
-    void DropObject()
+    public void DropObject()
     {
-
+        pickedUp.transform.position = dropRoot.transform.position;
+        pickedUp.gameObject.layer = 9;
+        pickedUp.transform.parent = null;
+        pickedUp = null;
+        carrying = false;
     }
 }
