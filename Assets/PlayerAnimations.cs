@@ -7,17 +7,19 @@ public class PlayerAnimations : MonoBehaviour
     Animator animator;
     PhysicsController player;
     CannonLookAtMouse mouseAnim;
+    PlayerPickupObject pickupObject;
 
     void Awake()
     {
         player = GetComponent<PhysicsController>();
         animator = GetComponent<Animator>();
         mouseAnim = GetComponent<CannonLookAtMouse>();
+        pickupObject = GetComponent<PlayerPickupObject>();
     }
 
     void Update()
     {
-        if(Input.GetKey(KeyCode.E))
+        if(pickupObject.carrying)
         {
             animator.SetBool("Pickup", true);
         }

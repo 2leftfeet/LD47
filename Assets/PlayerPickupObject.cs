@@ -11,7 +11,7 @@ public class PlayerPickupObject : MonoBehaviour
 
     LoopTracker loopTracker;
     Collider2D pickedUp;
-    bool carrying = false;
+    [HideInInspector] public bool carrying = false;
 
     void Awake()
     {
