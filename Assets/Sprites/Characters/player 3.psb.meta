@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c62f3b948e356b54f9d8999dff0bcef9
+guid: 9d745f66109acc649bc146af063cb7cf
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -364,8 +364,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 232
-      y: 776
+      x: 109
+      y: 829
       width: 112
       height: 45
     spriteID: 715cea933a5776e44932a97314300264
@@ -423,7 +423,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 54, y: 171}
+    uvTransform: {x: -69, y: 224}
   - name: arm_r
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -632,8 +632,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 740
+      x: 109
+      y: 882
       width: 40
       height: 76
     spriteID: af1663628dd41694786329fadb84676d
@@ -691,7 +691,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -392, y: 598}
+    uvTransform: {x: -287, y: 740}
   - name: thigh_r
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -803,28 +803,6 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -18, y: 172}
-  - name: head
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 383
-      width: 362
-      height: 243
-    spriteID: 6c7bed069f7be844489984d5019aac88
-    internalID: 0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    parentGroupIndex: -1
-    uvTransform: {x: -258, y: -281}
   - name: torso
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -847,6 +825,28 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: -370, y: -323}
+  - name: head
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 383
+      width: 265
+      height: 243
+    spriteID: d154c85c8fc810c48a622f9c519b2cfd
+    internalID: 0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -371, y: -279}
   platformSettings: []
   mosaicLayers: 1
   documentPivot: {x: 0, y: 0}
@@ -877,8 +877,8 @@ ScriptedImporter:
     spriteName: head
     isGroup: 0
     parentIndex: 0
-    spriteID: 6c7bed069f7be844489984d5019aac88
-    layerID: 66
+    spriteID: d154c85c8fc810c48a622f9c519b2cfd
+    layerID: 97
     mosaicPosition: {x: 4, y: 383}
   - name: arm_l
     spriteName: 
@@ -935,7 +935,7 @@ ScriptedImporter:
     parentIndex: 7
     spriteID: 715cea933a5776e44932a97314300264
     layerID: 42
-    mosaicPosition: {x: 232, y: 776}
+    mosaicPosition: {x: 109, y: 829}
   - name: arm_r
     spriteName: arm_r
     isGroup: 0
@@ -1005,7 +1005,7 @@ ScriptedImporter:
     parentIndex: 17
     spriteID: af1663628dd41694786329fadb84676d
     layerID: 28
-    mosaicPosition: {x: 4, y: 740}
+    mosaicPosition: {x: 109, y: 882}
   - name: thigh_r
     spriteName: thigh_r
     isGroup: 0
