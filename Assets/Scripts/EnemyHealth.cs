@@ -37,6 +37,7 @@ public class EnemyHealth : MonoBehaviour
     public void ResetEnemy()
     {
         fieldOfView.enabled = true;
+        reload.enabled = true;
         wander.enabled = usesWander;
         transform.position = startPosition;
         //gameObject.SetActive(true);
@@ -45,8 +46,11 @@ public class EnemyHealth : MonoBehaviour
             wander.Reset();
         }
         reload.Reset();
+        if(isDead)
+        {
+            animator.SetTrigger("Reset");
+        }
         isDead = false;
-        animator.SetTrigger("Reset");
     }
 
     void KillEnemy()
@@ -58,7 +62,7 @@ public class EnemyHealth : MonoBehaviour
         isDead = true;
         fieldOfView.enabled = false;
         wander.enabled = false;
-        
+        reload.enabled = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
