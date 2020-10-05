@@ -1187,8 +1187,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 7287389427863386549}
   m_Bounds:
-    m_Center: {x: 1.8695469, y: 0.95992947, z: 0}
-    m_Extent: {x: 0.6519456, y: 0.6964475, z: 0}
+    m_Center: {x: 0.13231426, y: 0.04013872, z: 0}
+    m_Extent: {x: 0.62418294, y: 0.3616493, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &6546439332370092649
@@ -1321,8 +1321,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 5039608135827921283}
   m_Bounds:
-    m_Center: {x: 0.6045779, y: 0.46504116, z: 0}
-    m_Extent: {x: 0.38633913, y: 0.21232389, z: 0}
+    m_Center: {x: 0.09416701, y: -0.03307557, z: 0}
+    m_Extent: {x: 0.2215558, y: 0.39088893, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7104531011717200118
@@ -1459,8 +1459,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 4954731939682955401}
   m_Bounds:
-    m_Center: {x: 1.8883195, y: 0.8718214, z: 0}
-    m_Extent: {x: 0.6757388, y: 0.6817385, z: 0}
+    m_Center: {x: 0.1341975, y: -0.051809788, z: 0}
+    m_Extent: {x: 0.63384986, y: 0.37984926, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &7441992652540002706
@@ -1759,8 +1759,8 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 3501446946703965128}
   m_Bounds:
-    m_Center: {x: 0.6034101, y: 0.5456424, z: 0}
-    m_Extent: {x: 0.38358843, y: 0.20690511, z: 0}
+    m_Center: {x: 0.09184623, y: 0.04757285, z: 0}
+    m_Extent: {x: 0.22155583, y: 0.39088905, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
 --- !u!1 &8353684396786591275
@@ -2167,6 +2167,7 @@ MonoBehaviour:
   pickupRoot: {fileID: 8652214031301868767}
   dropRoot: {fileID: 1475429243}
   carrying: 0
+  currentlyControlled: 1
 --- !u!82 &-1340532052154302093
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2389,13 +2390,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9144747819226786124}
-  m_LocalRotation: {x: -0, y: -0, z: -0.40383947, w: 0.9148299}
+  m_LocalRotation: {x: -0, y: -0, z: -0.6860504, w: 0.727554}
   m_LocalPosition: {x: 1.229647, y: -0.0000008060171, z: 0}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
   m_Children: []
   m_Father: {fileID: 3501446946703965128}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -47.637}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -86.637}
 --- !u!1 &9193360272066406708
 GameObject:
   m_ObjectHideFlags: 0
