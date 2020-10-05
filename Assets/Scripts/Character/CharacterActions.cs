@@ -90,6 +90,6 @@ public class KysAction : InputAction
 
     public override void PlayAction()
     {
-        cc.TriggerDeath();
+        cc.TriggerDeath(true);
     }
 }
