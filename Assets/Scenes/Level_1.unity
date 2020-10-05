@@ -4713,6 +4713,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDebug: 1
   levelData: []
+  respawnAudio: {fileID: 0}
+  respawnAudioVolume: 0
 --- !u!4 &1135429769
 Transform:
   m_ObjectHideFlags: 0
@@ -9957,7 +9959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894747467178849582, guid: 89847398fc4314faa9adbf2ed0a38ced, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.22
       objectReference: {fileID: 0}
     - target: {fileID: 2894747467178849582, guid: 89847398fc4314faa9adbf2ed0a38ced, type: 3}
       propertyPath: m_LocalPosition.z

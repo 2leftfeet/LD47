@@ -116,6 +116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   hitEffect: {fileID: 9098184147009298612, guid: ed332674cb358e2499eaa18bf8013d23, type: 3}
+  projectileDestroyAudio: {fileID: 8300000, guid: 9244c51220b62458980efbeda6365282, type: 3}
+  projectileDestroyAudioVolume: 0.5
 --- !u!50 &1749076457
 Rigidbody2D:
   serializedVersion: 4

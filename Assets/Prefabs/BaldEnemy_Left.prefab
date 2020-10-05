@@ -556,6 +556,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a12b87e58814030a8c29d54750be7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathAudio:
+  - {fileID: 8300000, guid: 96571d0e4f6d94cebb65a0b53d1e33d6, type: 3}
+  - {fileID: 8300000, guid: 3a47780d17e7a450b83b95a2e518bb7e, type: 3}
+  - {fileID: 8300000, guid: ec17ce47734aa40c98a4f224f6760679, type: 3}
+  deathAudioVolume: 0.38
 --- !u!114 &300610615423289648
 MonoBehaviour:
   m_ObjectHideFlags: 0

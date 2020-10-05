@@ -14,6 +14,11 @@ public class EnemyHealth : MonoBehaviour
     bool isDead = false;
     bool usesWander;
 
+    [Header("Audio")]
+    public List<AudioClip> deathAudio = new List<AudioClip>();
+    [Range(0,1)]
+    public float deathAudioVolume;
+
     void Start()
     {
         LoopManager.ResetReplay += ResetEnemy;
@@ -55,6 +60,7 @@ public class EnemyHealth : MonoBehaviour
 
     void KillEnemy()
     {
+        AudioManager.PlayClip(deathAudio[UnityEngine.Random.Range(0,deathAudio.Count-1)],deathAudioVolume);
         if(!isDead)
         {
             animator.SetTrigger("Die");
