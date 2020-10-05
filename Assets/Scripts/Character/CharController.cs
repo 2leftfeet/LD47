@@ -11,24 +11,55 @@ public class CharController : MonoBehaviour
     
     private LoopTracker loopTracker;
     private bool IsPlayerControlled => loopTracker.IsPlayerControlled;
+    private Animator animator;
+    private Collider2D collider;
+    private PlayerPickupObject pickupObject;
+    private PlayerInput input;
+    private CannonLookAtMouse cannon;
 
     private void Awake()
     {
         loopTracker = GetComponent<LoopTracker>();
         spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        collider = GetComponent<Collider2D>();
+        pickupObject = GetComponent<PlayerPickupObject>();
+        input = GetComponent<PlayerInput>();
+        cannon = GetComponent<CannonLookAtMouse>();
+
+        LoopManager.ResetReplay += ResetPlayer;
+    }
+
+    public void OnDestroy()
+    {
+        LoopManager.ResetReplay -= ResetPlayer;
     }
 
     public void TriggerDeath()
     {
-        gameObject.SetActive(false);
-        for (int i = 0; i < spriteRenderers.Length; i++)
-        {
-            spriteRenderers[i].sharedMaterial = deathMaterial;
-        }
+        animator.SetTrigger("Die");
+        animator.gameObject.tag = "DeadPlayer";
+
+        pickupObject.DropObject();
+        input.StopMovement();
+        input.enabled = false;
+        cannon.enabled = false;
+
         
         if (IsPlayerControlled)
         {
             LevelManager.Instance.TriggerDeath();
+        }
+    }
+
+    public void ResetPlayer()
+    {
+        animator.gameObject.tag  = "Player";
+
+        animator.SetTrigger("Reset");
+        for (int i = 0; i < spriteRenderers.Length; i++)
+        {
+            spriteRenderers[i].sharedMaterial = deathMaterial;
         }
     }
 }

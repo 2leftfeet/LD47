@@ -8,10 +8,18 @@ public class EnemyHealth : MonoBehaviour
 
     Wander wander;
     Reload reload;
+    Animator animator;
+    FieldOfView fieldOfView;
+
+    bool isDead = false;
+    bool usesWander;
 
     void Start()
     {
         LoopManager.ResetReplay += ResetEnemy;
+        animator = GetComponent<Animator>();
+        fieldOfView = GetComponentInChildren<FieldOfView>();
+        usesWander = wander.enabled;
     }
 
     void OnDestroy()
@@ -28,23 +36,40 @@ public class EnemyHealth : MonoBehaviour
 
     public void ResetEnemy()
     {
+        fieldOfView.enabled = true;
+        wander.enabled = usesWander;
         transform.position = startPosition;
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
         if(wander.enabled)
         {
             wander.Reset();
         }
         reload.Reset();
+        isDead = false;
+        animator.SetTrigger("Reset");
+    }
+
+    void KillEnemy()
+    {
+        if(!isDead)
+        {
+            animator.SetTrigger("Die");
+        }
+        isDead = true;
+        fieldOfView.enabled = false;
+        wander.enabled = false;
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         var projectile = other.GetComponent<ProjectileMover>();
 
-        if(other)
+        if(other && !isDead)
         {
             Destroy(other.gameObject);
-            gameObject.SetActive(false);
+            KillEnemy();
+            //gameObject.SetActive(false);
         }
     }
 }

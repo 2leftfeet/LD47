@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
+	public GameObject shootEffect;
+	public GameObject shootPoint;
 
 	public Reload reload;
     public float viewRadius;
@@ -39,7 +41,7 @@ public class FieldOfView : MonoBehaviour
 	}
 
 	void LateUpdate() {
-		DrawFieldOfView();
+		//DrawFieldOfView();
 	}
 
 	void DrawFieldOfView() {
@@ -114,6 +116,12 @@ public class FieldOfView : MonoBehaviour
 						viewMesh.Clear ();
 						reload.ReloadQueue();
 						target.gameObject.GetComponent<CharController>().TriggerDeath();
+
+						Vector3 dir = dirToTarget;
+						Vector3 rotatedDir = Quaternion.Euler(0, 0, 90) * -dir;
+
+						Quaternion rotation = Quaternion.LookRotation(Vector3.forward, rotatedDir);
+						Instantiate(shootEffect, shootPoint.transform.position, shootPoint.transform.rotation * rotation);
 						//StopCoroutine(coroutine);
 					}
 				}
