@@ -2304,10 +2304,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3249381043536682027, guid: 377815ef61ec84092a1738167835d11e, type: 3}
-      propertyPath: layer.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 3249381043536682029, guid: 377815ef61ec84092a1738167835d11e, type: 3}
       propertyPath: m_Name
       value: Level End
@@ -4443,6 +4439,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDebug: 1
   levelData: []
+  respawnAudio: {fileID: 0}
+  respawnAudioVolume: 0
 --- !u!4 &1135429769
 Transform:
   m_ObjectHideFlags: 0
