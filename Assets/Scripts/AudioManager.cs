@@ -26,7 +26,12 @@ public class AudioManager : SingletonBehavior<AudioManager>
 
     public static void PlayMusic()
     {
-        throw new NotImplementedException();
+        Instance.audioSource.Play();
+    }
+
+    public static void StopMusic()
+    {
+        Instance.audioSource.Stop();
     }
     
     public enum MusicType { MainTheme, Scene, Credits }

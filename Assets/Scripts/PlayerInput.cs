@@ -93,6 +93,10 @@ public class PlayerInput : MonoBehaviour
         var action = new HorizontalAction(0.0f, player);
         loopTracker.RegisterAction(action);
         action.PlayAction();
+
+         var action2 = new JumpAction(player, false);
+        loopTracker.RegisterAction(action2);
+        action2.PlayAction();
          
     }
 }

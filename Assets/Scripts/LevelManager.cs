@@ -14,6 +14,10 @@ public class LevelManager : SingletonBehavior<LevelManager>
     private int currLevelIndex = 0;
 
     private float rKeyHeldTime = 0;
+
+    public AudioClip respawnAudio;
+    [Range(0,1)]
+    public float respawnAudioVolume;
     
     void Awake()
     {
@@ -78,6 +82,7 @@ public class LevelManager : SingletonBehavior<LevelManager>
     {
         FadeManager.Instance.FadeOut(2f);
         yield return new WaitForSeconds(2f);
+        AudioManager.StopMusic();
         LoadNextLevel();
         FadeManager.Instance.FadeIn(2f);
     }
@@ -85,6 +90,7 @@ public class LevelManager : SingletonBehavior<LevelManager>
     private void IntroBroadcasterOnHasFinished()
     {
         StartLevel();
+        AudioManager.PlayMusic();
     }
     
     public void TriggerDeath()
@@ -95,6 +101,7 @@ public class LevelManager : SingletonBehavior<LevelManager>
     IEnumerator DeathSequence()
     {
         yield return new WaitForSeconds(1.5f);
+        AudioManager.PlayClip(respawnAudio,respawnAudioVolume);
         ResetLevel();
     }
 
