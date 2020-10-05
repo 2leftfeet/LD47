@@ -7,6 +7,10 @@ public class ProjectileMover : MonoBehaviour
     public float speed;
     public GameObject hitEffect;
 
+    public AudioClip projectileDestroyAudio;
+    [Range(0,1)]
+    public float projectileDestroyAudioVolume;
+
     void Awake()
     {
         Destroy(this.gameObject, 10.0f);
@@ -28,6 +32,7 @@ public class ProjectileMover : MonoBehaviour
 
     void OnDestroy()
     {
+        AudioManager.PlayClip(projectileDestroyAudio, projectileDestroyAudioVolume, 0.3f);
         Instantiate(hitEffect, transform.position, Quaternion.identity);
     }
 }

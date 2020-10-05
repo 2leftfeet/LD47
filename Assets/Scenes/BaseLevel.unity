@@ -761,6 +761,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isDebug: 1
   levelData: []
+  respawnAudio: {fileID: 0}
+  respawnAudioVolume: 0
 --- !u!4 &1135429769
 Transform:
   m_ObjectHideFlags: 0
