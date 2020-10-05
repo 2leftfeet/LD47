@@ -27,6 +27,8 @@ public class Button : MonoBehaviour
     [SerializeField] AudioClip onActivate;
     [SerializeField] AudioClip onDeactivate;
 
+    bool gotActivated = false;
+
     private void Awake()
     {
         trigger = GetComponent<OverlapTrigger>();
@@ -38,20 +40,25 @@ public class Button : MonoBehaviour
     void Enter(Collider2D other)
     {
         playersOnButton++;
-        if (playersOnButton == numOfPlayerReq)
+        Debug.Log(playersOnButton);
+        if (playersOnButton >= numOfPlayerReq)
         {
             if (movingPart)
                 movingPart.Translate(new Vector3(0f, -moveAmount, 0f));
             if (onActivate)
             {
                 AudioManager.PlayClip(onActivate, 1f);
-            }  
-            OnActivate();
+            }
+            Debug.Log("GOT activated");
+            if(!gotActivated)
+                OnActivate();
+            gotActivated = true;
         }
     }
 
     private void Exit(Collider2D other)
     {
+        Debug.Log("Player exited");
         playersOnButton--;
         if (playersOnButton < numOfPlayerReq)
         {
@@ -61,7 +68,9 @@ public class Button : MonoBehaviour
             {
                 AudioManager.PlayClip(onDeactivate, 0.5f);
             }
-            OnDeactivate();
+            if(gotActivated)
+                OnDeactivate();
+            gotActivated = false;
         }
 
     }
