@@ -51,7 +51,7 @@ MonoBehaviour:
   sizeY: 1
   layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
   positionOffset: {x: 0, y: 0}
   targetTag: Player
 --- !u!114 &3249381043536682028
@@ -66,8 +66,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e8aacb2fa384c5294e8ab177d7aa8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winnerScreen: {fileID: 0}
-  text: {fileID: 0}
+  yeahAudio: {fileID: 8300000, guid: 9647990e8457f45c4a4fdc33a4f5af7a, type: 3}
+  yeahAudioVolume: 0.87
+  transitionAudio: {fileID: 8300000, guid: 595811b7cb9cd4caa98c1ca7f9fb40b3, type: 3}
+  transitionAudioVolume: 0.31
 --- !u!1 &8565182057313410462
 GameObject:
   m_ObjectHideFlags: 0

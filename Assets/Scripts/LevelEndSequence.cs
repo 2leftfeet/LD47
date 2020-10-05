@@ -13,6 +13,13 @@ public class LevelEndSequence : MonoBehaviour
     bool waitingStarted;
     bool skipped;
 
+    public AudioClip yeahAudio;
+    [Range(0,1)]
+    public float yeahAudioVolume;
+    public AudioClip transitionAudio;
+    [Range(0,1)]
+    public float transitionAudioVolume;
+
     //something audio reference
 
     GameObject parent;
@@ -52,6 +59,8 @@ public class LevelEndSequence : MonoBehaviour
 
     void EndLevel(Collider2D other)
     {
+        AudioManager.PlayClip(yeahAudio,yeahAudioVolume);
+        AudioManager.PlayClip(transitionAudio,transitionAudioVolume);
         //Time.fixedDeltaTime = 0f;
         winnerScreen.SetActive(true);
         StartCoroutine("waitingToLoad");
