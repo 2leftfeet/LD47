@@ -89,6 +89,12 @@ public class LevelManager : SingletonBehavior<LevelManager>
     
     public void TriggerDeath()
     {
+        StartCoroutine(DeathSequence());
+    }
+
+    IEnumerator DeathSequence()
+    {
+        yield return new WaitForSeconds(1.5f);
         ResetLevel();
     }
 

@@ -13,8 +13,10 @@ public abstract class SingletonBehavior<T> : MonoBehaviour where T : MonoBehavio
             instance = this.GetComponent<T>();
             DontDestroyOnLoad(gameObject);
         }
-        else
+        else if (instance != this)
+        {
             Destroy(this.gameObject);
+        }
     }
 
     private static T instance;
