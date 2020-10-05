@@ -17,6 +17,7 @@ public class BodyMovement : MonoBehaviour
 {
     [SerializeField] LayerMask groundLayermask = default;
     [SerializeField] LayerMask fallLayermask = default;
+    [SerializeField] LayerMask fallOnlyLayermask = default;
     [SerializeField] float horizontalSkinWidthRising = 0.01f;
     [SerializeField] float horizontalSkinWidthFalling = 0.01f;
     [SerializeField] float verticalSkinWidth = 0.01f;
@@ -100,13 +101,28 @@ public class BodyMovement : MonoBehaviour
         {
             var hit = Physics2D.Raycast(rayOrigin + i * raySpacing * Vector2.right, rayDir, rayLength, layerMask);
 
-            Debug.DrawRay(vel + rayOrigin + i * raySpacing * Vector2.right, rayDir * rayLength, Color.red);
+            //Debug.DrawRay(vel + rayOrigin + i * raySpacing * Vector2.right, rayDir * rayLength, Color.red);
             if(hit)
             {
                 //vel.y = (hit.distance - verticalSkinWidth) * ySign;
                 //rayLength = (hit.distance - verticalSkinWidth);
                 collisionHappened = true;
                 collisionDistance = Mathf.Min(hit.distance, collisionDistance);
+            }
+        }
+
+        if(!yPositive)
+        {
+            for (int i = 0; i < verticalRayCount; i++)
+            {
+                var hit = Physics2D.Raycast(rayOrigin + i * raySpacing * Vector2.right, rayDir, rayLength * 2f, fallOnlyLayermask);
+
+                Debug.DrawRay(vel + rayOrigin + i * raySpacing * Vector2.right, rayDir * rayLength * 1.5f, Color.yellow);
+                if(hit)
+                {
+                    collisionHappened = true;
+                    collisionDistance = Mathf.Min(hit.distance, collisionDistance);
+                }
             }
         }
 

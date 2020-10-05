@@ -117,7 +117,7 @@ public class FieldOfView : MonoBehaviour
 						reload.ReloadQueue();
 						target.gameObject.GetComponent<CharController>().TriggerDeath();
 
-						Vector3 dir = dirToTarget;
+						Vector3 dir = new Vector3(dirToTarget.x, 0,0).normalized;
 						Vector3 rotatedDir = Quaternion.Euler(0, 0, 90) * -dir;
 
 						Quaternion rotation = Quaternion.LookRotation(Vector3.forward, rotatedDir);
