@@ -1916,6 +1916,7 @@ GameObject:
   - component: {fileID: 1395243085}
   - component: {fileID: -5212293158608118443}
   - component: {fileID: 166191808}
+  - component: {fileID: -1340532052154302093}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1996,7 +1997,7 @@ MonoBehaviour:
   reloadTime: 0.5
   backwards: 0
   shootAudio: {fileID: 8300000, guid: a4d0db0e537ae4267b0e21908f5a7a8e, type: 3}
-  audioVolume: 0.71
+  audioVolume: 0.1
 --- !u!95 &4438972307335608977
 Animator:
   serializedVersion: 3
@@ -2136,6 +2137,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathMaterial: {fileID: 2100000, guid: aecee06fc45ebb54db895d0c1077bced, type: 2}
+  deathAudio:
+  - {fileID: 8300000, guid: 63bea53d39e2e438fad31d31708ae3b9, type: 3}
+  - {fileID: 8300000, guid: 9f06d00215f5547ae9c8f9faadb0d70e, type: 3}
+  - {fileID: 8300000, guid: d02c288c9fa8843db9bdaa0442d2f051, type: 3}
+  - {fileID: 8300000, guid: d6f54f41f3f3347fe80f4effb1dac172, type: 3}
+  cloneDeathAudio: {fileID: 8300000, guid: b3ad3ef4a8b3d44ea80378154ad95e4b, type: 3}
+  audioVolume: 0.15
+  respawnAudio: {fileID: 8300000, guid: b7c3fcf9b99eb4effb647b617f37507d, type: 3}
+  respawnAudioVolume: 0.11
+  kysAudio: {fileID: 8300000, guid: b3ad3ef4a8b3d44ea80378154ad95e4b, type: 3}
+  kysAudioVolume: 0.42
 --- !u!114 &166191808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2154,6 +2166,103 @@ MonoBehaviour:
   pickupRadius: 2
   pickupRoot: {fileID: 8652214031301868767}
   dropRoot: {fileID: 1475429243}
+  carrying: 0
+--- !u!82 &-1340532052154302093
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974162156015000980}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ca8355f9d7bb647ae84ead2ce326e0ad, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.54
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 30
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9052866053783210843
 GameObject:
   m_ObjectHideFlags: 0
