@@ -50,6 +50,35 @@ public class ShootAction: InputAction
     }
 }
 
+public class PickupAction : InputAction
+{
+    private PlayerPickupObject pickupObject;
+    private Collider2D pickupable;
+
+    public PickupAction(PlayerPickupObject _pickupObject){
+        pickupObject = _pickupObject;
+    }
+
+    public override void PlayAction()
+    {
+        pickupObject.PickupObject();
+    }
+}
+
+public class DropAction : InputAction
+{
+    private PlayerPickupObject pickupObject;
+
+    public DropAction(PlayerPickupObject _pickupObject)
+    {
+        pickupObject = _pickupObject;
+    }
+    public override void PlayAction()
+    {
+        pickupObject.DropObject();
+    }
+}
+
 public class KysAction : InputAction
 {
     private CharController cc;
