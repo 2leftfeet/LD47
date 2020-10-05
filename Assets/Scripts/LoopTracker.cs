@@ -126,6 +126,7 @@ public class LoopTracker : MonoBehaviour
         // TODO: move somewhere else mby
         GetComponent<PlayerInput>().enabled = value;
         GetComponent<CannonLookAtMouse>().enabled = value;
+        GetComponent<PlayerPickupObject>().enabled = value;
     }
 
     private void OnDestroy()

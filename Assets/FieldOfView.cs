@@ -28,8 +28,8 @@ public class FieldOfView : MonoBehaviour
 
 	void OnEnable()
     {
-		coroutine = FindTargetsWithDelay(.2f);
-		StartCoroutine(coroutine);
+		//coroutine = FindTargetsWithDelay(.2f);
+		//StartCoroutine(coroutine);
     }
 
 	void Start() {
@@ -83,6 +83,10 @@ public class FieldOfView : MonoBehaviour
 		viewMesh.RecalculateNormals ();
 	}
 
+	void FixedUpdate()
+	{
+		FindVisibleTargets();
+	}
 
 	IEnumerator FindTargetsWithDelay(float delay) {
 		while (true) {
@@ -110,7 +114,7 @@ public class FieldOfView : MonoBehaviour
 						viewMesh.Clear ();
 						reload.ReloadQueue();
 						target.gameObject.GetComponent<CharController>().TriggerDeath();
-						StopCoroutine(coroutine);
+						//StopCoroutine(coroutine);
 					}
 				}
 			}

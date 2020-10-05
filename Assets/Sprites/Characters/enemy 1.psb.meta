@@ -418,7 +418,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -799, y: 352}
+    uvTransform: {x: -59, y: 190}
   - name: shotgun
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -440,7 +440,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -462, y: -243}
+    uvTransform: {x: 207, y: -297}
   - name: Layer 3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -524,27 +524,6 @@ ScriptedImporter:
     spriteID: 018e0732ab3017048813e49c201131bb
     layerID: 102
     mosaicPosition: {x: 445, y: 4}
-  - name: gun
-    spriteName: 
-    isGroup: 1
-    parentIndex: -1
-    spriteID: 00000000000000000000000000000000
-    layerID: 110
-    mosaicPosition: {x: 0, y: 0}
-  - name: shotgun_reloadie
-    spriteName: shotgun_reloadie
-    isGroup: 0
-    parentIndex: 6
-    spriteID: 723ebec188616524aa855b635547dad5
-    layerID: 115
-    mosaicPosition: {x: 4, y: 658}
-  - name: shotgun
-    spriteName: shotgun
-    isGroup: 0
-    parentIndex: 6
-    spriteID: 6b92c0f6e856d5a4c83bdfba5879dc53
-    layerID: 114
-    mosaicPosition: {x: 320, y: 4}
   - name: arm_r
     spriteName: 
     isGroup: 1
@@ -555,28 +534,49 @@ ScriptedImporter:
   - name: hand_r2
     spriteName: hand_r2
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 6
     spriteID: 641bcd6a1eb010445978dd39d62622e3
     layerID: 86
     mosaicPosition: {x: 445, y: 243}
+  - name: gun
+    spriteName: 
+    isGroup: 1
+    parentIndex: 6
+    spriteID: 00000000000000000000000000000000
+    layerID: 110
+    mosaicPosition: {x: 0, y: 0}
+  - name: shotgun_reloadie
+    spriteName: shotgun_reloadie
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 723ebec188616524aa855b635547dad5
+    layerID: 115
+    mosaicPosition: {x: 4, y: 658}
+  - name: shotgun
+    spriteName: shotgun
+    isGroup: 0
+    parentIndex: 8
+    spriteID: 6b92c0f6e856d5a4c83bdfba5879dc53
+    layerID: 114
+    mosaicPosition: {x: 320, y: 4}
   - name: hand_r1
     spriteName: hand_r1
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 6
     spriteID: a95c38ba5f4cf8c4d92eb97ffde65c47
     layerID: 89
     mosaicPosition: {x: 320, y: 904}
   - name: forearm_r
     spriteName: forearm_r
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 6
     spriteID: 5efa0992a879a1748a19533f6eb6b627
     layerID: 82
     mosaicPosition: {x: 445, y: 175}
   - name: arm_r
     spriteName: arm_r
     isGroup: 0
-    parentIndex: 9
+    parentIndex: 6
     spriteID: 365315dc1f6bf374a96acddd8694baa5
     layerID: 80
     mosaicPosition: {x: 445, y: 91}

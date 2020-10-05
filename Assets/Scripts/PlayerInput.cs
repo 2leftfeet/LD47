@@ -29,7 +29,22 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isJumpKeyDown = true;
+            createJump = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isJumpKeyDown = false;
+            createJump = true;
+        }
+
+        // TODO: To cleanup if it works
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            createKys = true;
+        }
     }
 
     public void Reset()
@@ -47,21 +62,6 @@ public class PlayerInput : MonoBehaviour
             createHorizontal = true;   
         }
         previousX = currentX;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isJumpKeyDown = true;
-            createJump = true;
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            isJumpKeyDown = false;
-            createJump = true;
-        }
-
-        // TODO: To cleanup if it works
-        createKys = Input.GetKeyDown(KeyCode.Return);
-
 
         if (createKys)
         {
