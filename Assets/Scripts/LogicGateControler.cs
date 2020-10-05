@@ -90,9 +90,9 @@ public class LogicGateControler : MonoBehaviour
     
     private void Update()
     {
-        
-        if (totalActive == totalPlates)
+        if (totalActive >= totalPlates)
         {
+            
             if (useTranslate)
             {
                 MoveObject(true);

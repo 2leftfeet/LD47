@@ -130,12 +130,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colliderType: 1
   radius: 1
-  sizeX: 4.56
-  sizeY: 1.76
+  sizeX: 3.54
+  sizeY: 1.08
   layer:
     serializedVersion: 2
     m_Bits: 4294967295
-  positionOffset: {x: 0.18, y: 0.14}
+  positionOffset: {x: 0.15, y: 0.42}
   targetTag: Player
 --- !u!114 &2861227647472544994
 MonoBehaviour:
