@@ -17,6 +17,7 @@ public class LogicGateControler : MonoBehaviour
     [Header("Translate options")]
 
     [SerializeField] Transform startPoint;
+    Vector3 makaroniPosition;
     [SerializeField] Transform endPoint;
     float speed;
     [SerializeField] float cycleTimeScaled = 2f;
@@ -44,7 +45,7 @@ public class LogicGateControler : MonoBehaviour
     float resetTimer = 1f;
     bool activated = false;
     bool activeCounter = false;
-
+    bool starPositionWasSet = false;
 
     
 
@@ -53,11 +54,17 @@ public class LogicGateControler : MonoBehaviour
     private void Awake()
     {
         if (!startPoint)
-            startPoint = gameObject.transform;
-
+        {
+            
+            makaroniPosition = gameObject.transform.position;
+        }
+        else
+        {
+            makaroniPosition = startPoint.position;
+        }
         if (useTranslate)
         {
-            speed = Vector3.Distance(startPoint.position, endPoint.position) / cycleTimeScaled;
+            speed = Vector3.Distance(makaroniPosition, endPoint.position) / cycleTimeScaled;
             doesReset = false;
             useTimer = false;
         }
@@ -151,13 +158,13 @@ public class LogicGateControler : MonoBehaviour
         if (forward && pointInTime < 1f)
         {
             pointInTime += (Time.deltaTime * speed );
-            transform.position = Vector3.Lerp(startPoint.position, endPoint.position, pointInTime);
+            transform.position = Vector3.Lerp(makaroniPosition, endPoint.position, pointInTime);
         }
         if(!forward && pointInTime > 0f)
         {
             
             pointInTime -= (Time.deltaTime * speed);
-            transform.position = Vector3.Lerp(startPoint.position, endPoint.position, pointInTime);
+            transform.position = Vector3.Lerp(makaroniPosition, endPoint.position, pointInTime);
 
         }
     }
