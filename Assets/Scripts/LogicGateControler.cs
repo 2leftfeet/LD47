@@ -65,7 +65,13 @@ public class LogicGateControler : MonoBehaviour
         }
         if (useTranslate)
         {
-            speed = Vector3.Distance(makaroniPosition, endPoint.position) / cycleTimeScaled;
+            if (endPoint)
+                speed = Vector3.Distance(makaroniPosition, endPoint.position) / cycleTimeScaled;
+            else
+            {
+                Debug.LogError("no end point set");
+                endPoint = gameObject.transform;
+            }
             useTimer = false;
         }
 

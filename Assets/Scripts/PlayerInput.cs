@@ -86,4 +86,13 @@ public class PlayerInput : MonoBehaviour
             createJump = false;
         }
     }
+
+    public void StopMovement()
+    {
+        
+        var action = new HorizontalAction(0.0f, player);
+        loopTracker.RegisterAction(action);
+        action.PlayAction();
+         
+    }
 }

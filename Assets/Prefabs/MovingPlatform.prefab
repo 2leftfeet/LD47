@@ -72,7 +72,7 @@ Animator:
   m_GameObject: {fileID: 8333372654933690474}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f9944ed705d9e4bc3848bca348d32811, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -93,12 +93,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44d4f514a9c384700b2f7de57bff049b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useTranslate: 1
   ButtonLisener:
   - {fileID: 0}
+  doesReset: 1
+  startPoint: {fileID: 0}
+  endPoint: {fileID: 0}
+  cycleTimeScaled: 8
+  useTimer: 0
   animationToOpen: activate
   animationToClose: deactivate
-  doesReset: 1
-  useTimer: 0
   resetTimer: 1
 --- !u!1 &8333372655306224732
 GameObject:
