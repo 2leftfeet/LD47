@@ -52,6 +52,7 @@ public class LevelEndSequence : MonoBehaviour
 
     void EndLevel(Collider2D other)
     {
+        Debug.Log("Level Complete!");
         //Time.fixedDeltaTime = 0f;
         winnerScreen.SetActive(true);
         StartCoroutine("waitingToLoad");
