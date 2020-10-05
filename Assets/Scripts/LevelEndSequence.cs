@@ -46,14 +46,6 @@ public class LevelEndSequence : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && waitingStarted)
-        {
-            StopCoroutine("waitingToLoad");
-            skipped = true;
-            //winnerScreen.SetActive(false);
-            //Time.fixedDeltaTime = 0.02f;
-            LevelManager.Instance.TriggerVictory();
-        }
     }
 
 
