@@ -6,7 +6,12 @@ using UnityEngine;
 
 public class LogicGateControler : MonoBehaviour
 {
-    
+
+    private void OnEnable()
+    {
+        LoopManager.StartReplay += Reset;
+    }
+
     [Header("Root options")]
 
     [SerializeField]
@@ -18,7 +23,7 @@ public class LogicGateControler : MonoBehaviour
 
     [Header("Translate options")]
 
-    [SerializeField] Transform startPoint;
+    Transform startPoint;
     Vector3 makaroniPosition;
     [SerializeField] Transform endPoint;
     float speed;
@@ -62,7 +67,13 @@ public class LogicGateControler : MonoBehaviour
         }
         if (useTranslate)
         {
-            speed = Vector3.Distance(makaroniPosition, endPoint.position) / cycleTimeScaled;
+            if (endPoint)
+                speed = Vector3.Distance(makaroniPosition, endPoint.position) / cycleTimeScaled;
+            else
+            {
+                Debug.LogError("no end point set");
+                endPoint = gameObject.transform;
+            }
             useTimer = false;
         }
 
@@ -165,4 +176,11 @@ public class LogicGateControler : MonoBehaviour
 
         }
     }
+
+    void Reset()
+    {
+        pointInTime = 0f;
+        gameObject.transform.position = makaroniPosition;
+    }
+
 }

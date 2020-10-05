@@ -6,7 +6,7 @@ public class Reload : MonoBehaviour
 {
 
     public FieldOfView fov;
-
+    Animator animator;
     public float reloadTime = 3f;
     float reloadTimer = 0.0f;
     IEnumerator coroutine;
@@ -14,10 +14,12 @@ public class Reload : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
     }
 
     public void ReloadQueue(){
         fov.enabled = false;
+        animator.SetBool("Reloading", true);
         reloadTimer = 0.0f;
     }
 
@@ -25,6 +27,7 @@ public class Reload : MonoBehaviour
     {
         reloadTimer = 0.0f;
         fov.enabled = true;
+        animator.SetBool("Reloading", false);
     }
     // Update is called once per frame
     void Update()
@@ -32,6 +35,7 @@ public class Reload : MonoBehaviour
         if(fov.enabled == false && reloadTimer > reloadTime)
         {
             fov.enabled = true;
+            animator.SetBool("Reloading", false);
             reloadTimer = 0.0f;
         }
         reloadTimer += Time.deltaTime;

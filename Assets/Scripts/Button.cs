@@ -26,14 +26,11 @@ public class Button : MonoBehaviour
     [Header("Audio Clips")]
     [SerializeField] AudioClip onActivate;
     [SerializeField] AudioClip onDeactivate;
-    
-    AudioSource audio;
 
     private void Awake()
     {
         trigger = GetComponent<OverlapTrigger>();
         sprite = GetComponent<SpriteRenderer>();
-        audio = GetComponent<AudioSource>();
         trigger.OnTriggerEnter += Enter;
         trigger.OnTriggerExit += Exit;
     }
@@ -47,8 +44,7 @@ public class Button : MonoBehaviour
                 movingPart.Translate(new Vector3(0f, -moveAmount, 0f));
             if (onActivate)
             {
-                audio.clip = onActivate;
-                audio.Play();
+                AudioManager.PlayClip(onActivate, 1f);
             }  
             OnActivate();
         }
@@ -63,8 +59,7 @@ public class Button : MonoBehaviour
                 movingPart.Translate(new Vector3(0f, moveAmount, 0f));
             if (onDeactivate)
             {
-                audio.clip = onDeactivate;
-                audio.Play();
+                AudioManager.PlayClip(onDeactivate, 0.5f);
             }
             OnDeactivate();
         }
