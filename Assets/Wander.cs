@@ -52,13 +52,11 @@ public class Wander : MonoBehaviour
         if(movingBack){
             targetPosition = prevPosition;
             transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localScale.z);
-            Debug.Log("flipA");
             FOVpivot.transform.eulerAngles = new Vector3(FOVpivot.transform.eulerAngles.x, FOVpivot.transform.eulerAngles.y + 180, FOVpivot.transform.eulerAngles.z);
         } 
         else{
             targetPosition = initialTargetPosition;
             transform.localScale = new Vector3(-transform.localScale.x,transform.localScale.y,transform.localScale.z);
-            Debug.Log("flipB");
             FOVpivot.transform.eulerAngles = new Vector3(FOVpivot.transform.eulerAngles.x, FOVpivot.transform.eulerAngles.y - 180, FOVpivot.transform.eulerAngles.z);
         }
         animator.SetBool("Running",  true);
