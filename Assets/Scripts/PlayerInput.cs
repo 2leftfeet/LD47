@@ -41,7 +41,10 @@ public class PlayerInput : MonoBehaviour
         }
 
         // TODO: To cleanup if it works
-        createKys = Input.GetKeyDown(KeyCode.Return);
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            createKys = true;
+        }
     }
 
     public void Reset()
@@ -82,5 +85,14 @@ public class PlayerInput : MonoBehaviour
             action.PlayAction();
             createJump = false;
         }
+    }
+
+    public void StopMovement()
+    {
+        
+        var action = new HorizontalAction(0.0f, player);
+        loopTracker.RegisterAction(action);
+        action.PlayAction();
+         
     }
 }

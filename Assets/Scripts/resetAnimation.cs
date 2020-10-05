@@ -14,7 +14,8 @@ public class resetAnimation : MonoBehaviour
 
     private void OnEnable()
     {
-        LoopManager.ResetReplay += Reset;
+        LoopManager.StartReplay += Reset;
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class resetAnimation : MonoBehaviour
 
     void Reset()
     {
-        playableDirector.time = 0;
+        if(playableDirector)
+            playableDirector.time = 0;
     }
 }

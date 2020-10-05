@@ -10,12 +10,15 @@ public class PlayerPickupObject : MonoBehaviour
     public GameObject dropRoot;
 
     LoopTracker loopTracker;
+    CannonLookAtMouse cannon;
     Collider2D pickedUp;
     [HideInInspector] public bool carrying = false;
+    [HideInInspector] public bool currentlyControlled = true;
 
     void Awake()
     {
         loopTracker = GetComponent<LoopTracker>();
+        cannon = GetComponent<CannonLookAtMouse>();
     }
 
     void OnDisable()
@@ -25,7 +28,7 @@ public class PlayerPickupObject : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && currentlyControlled)
         {
             if(carrying)
             {
@@ -47,20 +50,35 @@ public class PlayerPickupObject : MonoBehaviour
         var pickupable = Physics2D.OverlapCircle(transform.position, pickupRadius, pickupablesLayer);
         if(pickupable)
         {
+            cannon.enabled = false;
+
             pickupable.transform.position = pickupRoot.transform.position;
             pickupable.gameObject.layer = 10;
             pickupable.transform.parent = pickupRoot.transform;
             pickedUp = pickupable;
             carrying = true;
+
+            pickupable.GetComponent<Rigidbody2D>().isKinematic = true;
         }
     }
 
     public void DropObject()
     {
-        pickedUp.transform.position = dropRoot.transform.position;
-        pickedUp.gameObject.layer = 9;
-        pickedUp.transform.parent = null;
-        pickedUp = null;
-        carrying = false;
+        if(pickedUp)
+        {
+            cannon.enabled = true;
+
+            pickedUp.transform.position = dropRoot.transform.position;
+            pickedUp.gameObject.layer = 9;
+            pickedUp.transform.parent = null;
+            carrying = false;
+
+            var rb = pickedUp.GetComponent<Rigidbody2D>();
+            if(rb)
+            {
+                rb.isKinematic = false;
+            }
+            pickedUp = null;
+        }
     }
 }

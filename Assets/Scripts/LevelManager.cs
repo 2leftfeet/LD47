@@ -13,6 +13,8 @@ public class LevelManager : SingletonBehavior<LevelManager>
     private SceneData[] levelData = null;
     private int currLevelIndex = 0;
 
+    private float rKeyHeldTime = 0;
+    
     void Awake()
     {
         if (isDebug && Instance != this)
@@ -87,6 +89,12 @@ public class LevelManager : SingletonBehavior<LevelManager>
     
     public void TriggerDeath()
     {
+        StartCoroutine(DeathSequence());
+    }
+
+    IEnumerator DeathSequence()
+    {
+        yield return new WaitForSeconds(1.5f);
         ResetLevel();
     }
 
@@ -101,5 +109,23 @@ public class LevelManager : SingletonBehavior<LevelManager>
     {
         LoopManager.Instance.ResetReplays();
         StartLevel();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.R))
+        {
+            rKeyHeldTime += Time.deltaTime;
+        } 
+        if(Input.GetKeyUp(KeyCode.R))
+        {
+            rKeyHeldTime = 0;
+        }
+
+        if (rKeyHeldTime >= 1.5f)
+        {
+            LoadLevel(currLevelIndex);
+            rKeyHeldTime = 0;
+        }
     }
 }
