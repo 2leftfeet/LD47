@@ -493,7 +493,14 @@ MonoBehaviour:
   levelData:
   - sceneName: MainMenu
   - sceneName: Level_1
+  - sceneName: Level_EnemyIntroduction
+  - sceneName: Level_3
+  - sceneName: Level_DoubleJumpSpiky
+  - sceneName: Level_ClimbSoHigh
+  - sceneName: Level_0
+  - sceneName: Level_FourButts
   - sceneName: Level_2
+  - sceneName: GameEnd
   respawnAudio: {fileID: 8300000, guid: b7c3fcf9b99eb4effb647b617f37507d, type: 3}
   respawnAudioVolume: 0.74
 --- !u!4 &1863752050

@@ -9,7 +9,7 @@ public class resetAnimation : MonoBehaviour
 
     private void OnDisable()
     {
-        
+        LoopManager.StartReplay -= Reset;
     }
 
     private void OnEnable()
