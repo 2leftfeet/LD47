@@ -12,6 +12,7 @@ public class PlayerPickupObject : MonoBehaviour
     LoopTracker loopTracker;
     Collider2D pickedUp;
     [HideInInspector] public bool carrying = false;
+    [HideInInspector] public bool currentlyControlled = true;
 
     void Awake()
     {
@@ -25,7 +26,7 @@ public class PlayerPickupObject : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E) && currentlyControlled)
         {
             if(carrying)
             {
@@ -52,15 +53,26 @@ public class PlayerPickupObject : MonoBehaviour
             pickupable.transform.parent = pickupRoot.transform;
             pickedUp = pickupable;
             carrying = true;
+
+            pickupable.GetComponent<Rigidbody2D>().isKinematic = true;
         }
     }
 
     public void DropObject()
     {
-        pickedUp.transform.position = dropRoot.transform.position;
-        pickedUp.gameObject.layer = 9;
-        pickedUp.transform.parent = null;
-        pickedUp = null;
-        carrying = false;
+        if(pickedUp)
+        {
+            pickedUp.transform.position = dropRoot.transform.position;
+            pickedUp.gameObject.layer = 9;
+            pickedUp.transform.parent = null;
+            carrying = false;
+
+            var rb = pickedUp.GetComponent<Rigidbody2D>();
+            if(rb)
+            {
+                rb.isKinematic = false;
+            }
+            pickedUp = null;
+        }
     }
 }
