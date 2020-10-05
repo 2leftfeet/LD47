@@ -12,6 +12,7 @@ public class LevelEndSequence : MonoBehaviour
 
     bool waitingStarted;
     bool skipped;
+    bool levelChanged = false;
 
     public AudioClip yeahAudio;
     [Range(0,1)]
@@ -55,12 +56,17 @@ public class LevelEndSequence : MonoBehaviour
         AudioManager.PlayClip(transitionAudio,transitionAudioVolume);
         //Time.fixedDeltaTime = 0f;
         winnerScreen.SetActive(true);
-        StartCoroutine("waitingToLoad");
+        if (!levelChanged)
+        {
+            levelChanged = true;
+            StartCoroutine("waitingToLoad");
+        }
     }
     
 
     IEnumerator waitingToLoad()
     {
+
         yield return new WaitForSecondsRealtime(3f);
         if (!skipped)
         {
