@@ -15,9 +15,13 @@ public class LevelManager : SingletonBehavior<LevelManager>
 
     void Awake()
     {
-        base.Awake();
-        if(isDebug && Instance != null)
+        if (isDebug && Instance != this)
+        {
             Destroy(gameObject);
+            return;
+        }
+
+        base.Awake();
     }
     
     private void OnEnable()
@@ -39,10 +43,13 @@ public class LevelManager : SingletonBehavior<LevelManager>
     
     private void Start()
     {
-        // LoadLevel(0);
         if(isDebug)
-            StartLevel();
-        else LoadLevel(0);
+        {
+            // Do nothing and it works :)
+            // StartLevel();
+        }
+        else 
+            LoadLevel(0);
     }
 
     public void LoadNextLevel()
