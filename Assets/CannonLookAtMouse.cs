@@ -60,7 +60,10 @@ public class CannonLookAtMouse : MonoBehaviour
             loopTracker.RegisterAction(action);
             action.PlayAction();
             createShootAction = false;
-            AudioManager.PlayClip(shootAudio,audioVolume,0.3f);
+            if (loopTracker.IsPlayerControlled){
+                AudioManager.PlayClip(shootAudio,audioVolume,0.3f);
+            }
+            else AudioManager.PlayClip(shootAudio,0.15f,0.3f);
         }
 
         if(currFixedFrame % mousePosTrackingInterval == 0)
@@ -98,6 +101,9 @@ public class CannonLookAtMouse : MonoBehaviour
 
         Quaternion rotation = Quaternion.LookRotation(Vector3.forward, rotatedDir);
         var proj = Instantiate(projectile, shootPoint.position, rotation);
+        if(!loopTracker.IsPlayerControlled){
+            proj.gameObject.GetComponent<ProjectileMover>().projectileDestroyAudioVolume = 0.2f;
+        }
 
         Instantiate(splashEffect, shootPoint.position, splashEffect.transform.rotation * rotation);
     }
