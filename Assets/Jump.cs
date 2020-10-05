@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class Jump : StateMachineBehaviour
 {
-    public AudioClip jumpAudio;
-    [Range(0,1)]
-    public float jumpAudioVolume;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        AudioManager.PlayClip(jumpAudio, jumpAudioVolume);
+        AudioManager.PlayClip(animator.gameObject.GetComponent<CharController>().jumpAudio, animator.gameObject.GetComponent<CharController>().jumpAudioVolume);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

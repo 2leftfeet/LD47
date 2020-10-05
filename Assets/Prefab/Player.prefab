@@ -1997,7 +1997,7 @@ MonoBehaviour:
   reloadTime: 0.5
   backwards: 0
   shootAudio: {fileID: 8300000, guid: a4d0db0e537ae4267b0e21908f5a7a8e, type: 3}
-  audioVolume: 0.1
+  audioVolume: 0.29
 --- !u!95 &4438972307335608977
 Animator:
   serializedVersion: 3
@@ -2143,11 +2143,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d02c288c9fa8843db9bdaa0442d2f051, type: 3}
   - {fileID: 8300000, guid: d6f54f41f3f3347fe80f4effb1dac172, type: 3}
   cloneDeathAudio: {fileID: 8300000, guid: b3ad3ef4a8b3d44ea80378154ad95e4b, type: 3}
-  audioVolume: 0.15
-  respawnAudio: {fileID: 8300000, guid: b7c3fcf9b99eb4effb647b617f37507d, type: 3}
-  respawnAudioVolume: 0.11
+  audioVolume: 0.44
   kysAudio: {fileID: 8300000, guid: b3ad3ef4a8b3d44ea80378154ad95e4b, type: 3}
-  kysAudioVolume: 0.42
+  kysAudioVolume: 0.82
+  jumpAudio: {fileID: 8300000, guid: b82aae34cea114d6da104fb9871573f5, type: 3}
+  jumpAudioVolume: 0.7
+  cloneJumpAudio: {fileID: 8300000, guid: 4ce366fdb90f64fc0a90c97300a2b1fa, type: 3}
+  cloneJumpAudioVolume: 0.3
 --- !u!114 &166191808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2167,6 +2169,7 @@ MonoBehaviour:
   pickupRoot: {fileID: 8652214031301868767}
   dropRoot: {fileID: 1475429243}
   carrying: 0
+  currentlyControlled: 1
 --- !u!82 &-1340532052154302093
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2179,7 +2182,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ca8355f9d7bb647ae84ead2ce326e0ad, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.54
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0

@@ -23,14 +23,16 @@ public class CharController : MonoBehaviour
     public AudioClip cloneDeathAudio;
     [Range(0,1)]
     public float audioVolume;
-
-    public AudioClip respawnAudio;
-    [Range(0,1)]
-    public float respawnAudioVolume;
     public AudioClip kysAudio;
     [Range(0,1)]
     public float kysAudioVolume;
     AudioSource source;
+    public AudioClip jumpAudio;
+    [Range(0,1)]
+    public float jumpAudioVolume;
+    public AudioClip cloneJumpAudio;
+    [Range(0,1)]
+    public float cloneJumpAudioVolume;
     private void Awake()
     {
         source = GetComponent<AudioSource>();
@@ -53,6 +55,8 @@ public class CharController : MonoBehaviour
     public void TriggerDeath(bool isKys = false)
     {
         source.volume = 0.1f;
+        jumpAudioVolume = cloneJumpAudioVolume;
+        jumpAudio = cloneJumpAudio;
 
         animator.SetTrigger("Die");
         animator.gameObject.tag = "DeadPlayer";
@@ -69,9 +73,8 @@ public class CharController : MonoBehaviour
                 AudioManager.PlayClip(kysAudio,kysAudioVolume);
             }
             else{
-                AudioManager.PlayClip(deathAudio[UnityEngine.Random.Range(0,deathAudio.Count-1) ],audioVolume);
+                AudioManager.PlayClip(deathAudio[UnityEngine.Random.Range(0,deathAudio.Count-1)],audioVolume);
             }
-            AudioManager.PlayClip(respawnAudio,respawnAudioVolume);
             LevelManager.Instance.TriggerDeath();
         }
         else{
