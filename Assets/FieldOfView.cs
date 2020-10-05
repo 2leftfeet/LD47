@@ -27,6 +27,10 @@ public class FieldOfView : MonoBehaviour
 
 	string targetTag = "Player";
 
+	public AudioClip shootAudio;
+    [Range(0,1)]
+    public float shootAudioVolume;
+
 
 	void OnEnable()
     {
@@ -109,6 +113,7 @@ public class FieldOfView : MonoBehaviour
 
 				if (!Physics2D.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask)) {
 					if(target.tag == targetTag){
+						AudioManager.PlayClip(shootAudio,shootAudioVolume);
 						Debug.Log("Got em");
 						visibleTargets.Add(target);
 
