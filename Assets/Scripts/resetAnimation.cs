@@ -24,6 +24,7 @@ public class resetAnimation : MonoBehaviour
 
     void Reset()
     {
-        playableDirector.time = 0;
+        if(playableDirector)
+            playableDirector.time = 0;
     }
 }
