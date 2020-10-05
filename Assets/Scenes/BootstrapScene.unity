@@ -494,10 +494,10 @@ MonoBehaviour:
   - sceneName: MainMenu
   - sceneName: Level_1
   - sceneName: Level_EnemyIntroduction
-  - sceneName: Level_3
   - sceneName: Level_DoubleJumpSpiky
   - sceneName: Level_ClimbSoHigh
   - sceneName: Level_FourButts
+  - sceneName: Level_3
   - sceneName: Level_0
   - sceneName: Level_2
   - sceneName: GameEnd
