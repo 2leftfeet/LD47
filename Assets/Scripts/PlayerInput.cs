@@ -10,6 +10,7 @@ public class PlayerInput : MonoBehaviour
     private CannonLookAtMouse cannon;
 
     float previousX = 0.0f;
+    float currentX = 0.0f;
 
     bool createHorizontal = false;
     
@@ -28,12 +29,23 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        float currentX = Input.GetAxisRaw("Horizontal");
+        
+    }
+
+    public void Reset()
+    {
+        createKys = false;
+        createJump = false;
+        createHorizontal = false;
+    }
+    
+    void FixedUpdate()
+    {
+        currentX = Input.GetAxisRaw("Horizontal");
         if(Mathf.Abs(previousX - currentX) > 0.0f)
         {
             createHorizontal = true;   
         }
-
         previousX = currentX;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -49,6 +61,8 @@ public class PlayerInput : MonoBehaviour
 
         // TODO: To cleanup if it works
         createKys = Input.GetKeyDown(KeyCode.Return);
+
+
         if (createKys)
         {
             var action = new KysAction(cc);
@@ -56,17 +70,6 @@ public class PlayerInput : MonoBehaviour
             action.PlayAction();
             createKys = false;
         }
-    }
-
-    public void Reset()
-    {
-        createKys = false;
-        createJump = false;
-        createHorizontal = false;
-    }
-    
-    void FixedUpdate()
-    {
         if(createHorizontal)
         {
             var action = new HorizontalAction(previousX, player);

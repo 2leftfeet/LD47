@@ -53,7 +53,7 @@ public class LoopTracker : MonoBehaviour
             ActionEntry ae = actionEntries[currIndex];
             while (ae.CapturedFrame <= currFixedFrame)
             {
-                ae.InputAction.PlayAction(); 
+                ae.InputAction.PlayAction();
                 currIndex++;
                 
                 // Assign new current ae or break out 
@@ -117,6 +117,7 @@ public class LoopTracker : MonoBehaviour
         isReplaying = false;
         currFixedFrame = 0;
         currIndex = 0;
+        currMouseIndex = 0;
     }
 
     public void MarkAsPlayerControlled(bool value)
