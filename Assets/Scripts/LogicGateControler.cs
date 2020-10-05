@@ -13,6 +13,8 @@ public class LogicGateControler : MonoBehaviour
     bool useTranslate = false;
     [SerializeField]
     Button[] ButtonLisener;
+    [SerializeField]
+    bool doesReset = false;
 
     [Header("Translate options")]
 
@@ -26,8 +28,7 @@ public class LogicGateControler : MonoBehaviour
     int totalPlates;
 
     [Header("Animation Options")]
-    [SerializeField]
-    bool doesReset = false;
+    
     [SerializeField]
     bool useTimer = false;
     [SerializeField]
@@ -65,7 +66,6 @@ public class LogicGateControler : MonoBehaviour
         if (useTranslate)
         {
             speed = Vector3.Distance(makaroniPosition, endPoint.position) / cycleTimeScaled;
-            doesReset = false;
             useTimer = false;
         }
 
@@ -109,7 +109,7 @@ public class LogicGateControler : MonoBehaviour
 
         if(!useTimer && totalActive != totalPlates)
         {
-            if (useTranslate)
+            if (useTranslate && doesReset)
             {
                 MoveObject(false);
             }
