@@ -12,16 +12,12 @@ public class LevelEndSequence : MonoBehaviour
     [SerializeField]
     GameObject winnerScreen;
 
-    bool lastLevel;
-
     bool waitingStarted;
-
-
     bool skipped;
-    int alpha = 0;
-    [SerializeField] 
-    TMP_Text text;
+
     //something audio reference
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +35,8 @@ public class LevelEndSequence : MonoBehaviour
         {
             StopCoroutine("waitingToLoad");
             skipped = true;
-            Time.fixedDeltaTime = 0.02f;
+            //winnerScreen.SetActive(false);
+            //Time.fixedDeltaTime = 0.02f;
             LevelManager.Instance.TriggerVictory();
         }
     }
@@ -47,7 +44,7 @@ public class LevelEndSequence : MonoBehaviour
 
     void EndLevel(Collider2D other)
     {
-        Time.fixedDeltaTime = 0f;
+        //Time.fixedDeltaTime = 0f;
         winnerScreen.SetActive(true);
         StartCoroutine("waitingToLoad");
     }
@@ -57,7 +54,8 @@ public class LevelEndSequence : MonoBehaviour
         yield return new WaitForSecondsRealtime(3f);
         if (!skipped)
         {
-            Time.fixedDeltaTime = 0.02f;
+            //Time.fixedDeltaTime = 0.02f;
+            //winnerScreen.SetActive(false);
             LevelManager.Instance.TriggerVictory();
         }
     }
