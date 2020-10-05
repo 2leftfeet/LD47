@@ -41,7 +41,7 @@ public class PlayerInput : MonoBehaviour
         }
 
         // TODO: To cleanup if it works
-        if(Input.GetKeyDown(KeyCode.Return))
+        if(Input.GetKeyDown(KeyCode.F))
         {
             createKys = true;
         }
