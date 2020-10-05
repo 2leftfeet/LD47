@@ -38,9 +38,6 @@ public class LogicGateControler : MonoBehaviour
 
     new Animator animation;
 
-    
-
-    
 
     [SerializeField]
     float resetTimer = 1f;
@@ -79,7 +76,7 @@ public class LogicGateControler : MonoBehaviour
             e.OnDeactivate += CountDeactive;
         }
     }
-
+    
     private void Update()
     {
         
