@@ -5,6 +5,7 @@ using UnityEngine;
 public class ProjectileMover : MonoBehaviour
 {
     public float speed;
+    public GameObject hitEffect;
 
     void Awake()
     {
@@ -15,5 +16,18 @@ public class ProjectileMover : MonoBehaviour
     void FixedUpdate()
     {
         transform.Translate(Vector2.left * speed * Time.deltaTime);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnDestroy()
+    {
+        Instantiate(hitEffect, transform.position, Quaternion.identity);
     }
 }
