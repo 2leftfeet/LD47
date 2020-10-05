@@ -43,15 +43,17 @@ public class Button : MonoBehaviour
         Debug.Log(playersOnButton);
         if (playersOnButton >= numOfPlayerReq)
         {
-            if (movingPart)
-                movingPart.Translate(new Vector3(0f, -moveAmount, 0f));
             if (onActivate)
             {
                 AudioManager.PlayClip(onActivate, 1f);
             }
             Debug.Log("GOT activated");
-            if(!gotActivated)
+            if (!gotActivated)
+            {
+                if (movingPart)
+                    movingPart.Translate(new Vector3(0f, -moveAmount, 0f));
                 OnActivate();
+            }
             gotActivated = true;
         }
     }
@@ -62,14 +64,16 @@ public class Button : MonoBehaviour
         playersOnButton--;
         if (playersOnButton < numOfPlayerReq)
         {
-            if(movingPart)
-                movingPart.Translate(new Vector3(0f, moveAmount, 0f));
             if (onDeactivate)
             {
                 AudioManager.PlayClip(onDeactivate, 0.5f);
             }
-            if(gotActivated)
+            if (gotActivated)
+            {
+                if (movingPart)
+                    movingPart.Translate(new Vector3(0f, moveAmount, 0f));
                 OnDeactivate();
+            }
             gotActivated = false;
         }
 
