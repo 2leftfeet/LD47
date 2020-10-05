@@ -15,6 +15,27 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_1.unity
     guid: 8a10be2e4b2b74e5492db2b794606e62
   - enabled: 1
+    path: Assets/Scenes/Level_EnemyIntroduction.unity
+    guid: c172585d3745a7c47b5e3fe0ab4250fe
+  - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: ac525ba3b69584df4873023e8389d43c
+  - enabled: 1
+    path: Assets/Scenes/Level_DoubleJumpSpiky.unity
+    guid: a672d0c393a0e3645bb0d8a06c10e92c
+  - enabled: 1
+    path: Assets/Scenes/Level_ClimbSoHigh.unity
+    guid: 67356d38176b3cc498f3c50166a680ca
+  - enabled: 1
+    path: Assets/Scenes/Level_0.unity
+    guid: f52c0e20b01492445abd4b190eddcff8
+  - enabled: 1
+    path: Assets/Scenes/Level_FourButts.unity
+    guid: 43ab761f742a3c649b06fcc1c2cf196c
+  - enabled: 1
     path: Assets/Scenes/Level_2.unity
     guid: 3710de2e39bdf4a0ab462f30f912c7ac
+  - enabled: 1
+    path: Assets/Scenes/GameEnd.unity
+    guid: a5df9525e04684b88ad3d54bf9df38ec
   m_configObjects: {}
