@@ -80,7 +80,7 @@ public class PhysicsController : MonoBehaviour
         if(jumpBuffer > 0.0f)
         {
             if(body.collisionState.below){
-                velocity.y += jumpVelocity;
+                velocity.y = jumpVelocity;
             }
             jumpBuffer -= Time.deltaTime;
         }

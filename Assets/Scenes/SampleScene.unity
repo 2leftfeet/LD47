@@ -130,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2353794573132484903, guid: f96427a47b8c141129e0eb1ae31f2f20, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.035818085
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353794573132484903, guid: f96427a47b8c141129e0eb1ae31f2f20, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.99935836
-      objectReference: {fileID: 0}
     - target: {fileID: 3290583412984961427, guid: f96427a47b8c141129e0eb1ae31f2f20, type: 3}
       propertyPath: m_LocalPosition.x
       value: 17.558758
@@ -182,21 +174,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3530309233483606379, guid: f96427a47b8c141129e0eb1ae31f2f20, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7482687
-      objectReference: {fileID: 0}
-    - target: {fileID: 3530309233483606379, guid: f96427a47b8c141129e0eb1ae31f2f20, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6633959
-      objectReference: {fileID: 0}
     - target: {fileID: 8974162156015000980, guid: f96427a47b8c141129e0eb1ae31f2f20, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8974162156015000980, guid: f96427a47b8c141129e0eb1ae31f2f20, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f96427a47b8c141129e0eb1ae31f2f20, type: 3}
@@ -714,6 +694,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BaldEnemy_Left
       objectReference: {fileID: 0}
+    - target: {fileID: 1247652686646440847, guid: b0ba0c22bf9fd4c04aef966e78207e6e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4643401719468439432, guid: b0ba0c22bf9fd4c04aef966e78207e6e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.206196
@@ -769,11 +753,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 782155771746047733, guid: bbcea67a1464f48deacd111feb8dcc40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.504
+      value: 9.87
       objectReference: {fileID: 0}
     - target: {fileID: 782155771746047733, guid: bbcea67a1464f48deacd111feb8dcc40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.85
+      value: -6.46
       objectReference: {fileID: 0}
     - target: {fileID: 782155771746047733, guid: bbcea67a1464f48deacd111feb8dcc40, type: 3}
       propertyPath: m_LocalPosition.z
@@ -815,6 +799,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pickuppable Beam
       objectReference: {fileID: 0}
+    - target: {fileID: 782155771746047736, guid: bbcea67a1464f48deacd111feb8dcc40, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbcea67a1464f48deacd111feb8dcc40, type: 3}
 --- !u!1001 &1210144877229783653
@@ -827,6 +815,10 @@ PrefabInstance:
     - target: {fileID: 115899352700421159, guid: 292f385d1bde5499f8377d2d28eccb05, type: 3}
       propertyPath: m_Name
       value: BaldEnemy_Right
+      objectReference: {fileID: 0}
+    - target: {fileID: 115899352700421159, guid: 292f385d1bde5499f8377d2d28eccb05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5817490844989374496, guid: 292f385d1bde5499f8377d2d28eccb05, type: 3}
       propertyPath: m_LocalPosition.x

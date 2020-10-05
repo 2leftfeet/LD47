@@ -8,8 +8,6 @@ using TMPro;
 public class LevelEndSequence : MonoBehaviour
 {
     OverlapTrigger trigger;
-
-    [SerializeField]
     GameObject winnerScreen;
 
     bool waitingStarted;
@@ -24,11 +22,21 @@ public class LevelEndSequence : MonoBehaviour
 
     //something audio reference
 
-    
+    GameObject parent;
 
     // Start is called before the first frame update
     void Start()
     {
+        // This is my magnum bopis, if anyone sees this script, tell them Arnas made this
+        // Simplier setup because you no need to asign shit. :) Only downside -50fps
+        parent = GameObject.Find("Intro");
+        foreach(Transform child in parent.transform)
+        {
+        if(child.tag == "EndScreen")
+            winnerScreen = child.gameObject;
+        }
+        // magnum bopis pabaiga
+
         waitingStarted = false;
         skipped = false;
         trigger = GetComponent<OverlapTrigger>();
@@ -57,6 +65,7 @@ public class LevelEndSequence : MonoBehaviour
         winnerScreen.SetActive(true);
         StartCoroutine("waitingToLoad");
     }
+    
 
     IEnumerator waitingToLoad()
     {
