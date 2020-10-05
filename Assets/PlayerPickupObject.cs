@@ -10,6 +10,7 @@ public class PlayerPickupObject : MonoBehaviour
     public GameObject dropRoot;
 
     LoopTracker loopTracker;
+    CannonLookAtMouse cannon;
     Collider2D pickedUp;
     [HideInInspector] public bool carrying = false;
     [HideInInspector] public bool currentlyControlled = true;
@@ -17,6 +18,7 @@ public class PlayerPickupObject : MonoBehaviour
     void Awake()
     {
         loopTracker = GetComponent<LoopTracker>();
+        cannon = GetComponent<CannonLookAtMouse>();
     }
 
     void OnDisable()
@@ -48,6 +50,8 @@ public class PlayerPickupObject : MonoBehaviour
         var pickupable = Physics2D.OverlapCircle(transform.position, pickupRadius, pickupablesLayer);
         if(pickupable)
         {
+            cannon.enabled = false;
+
             pickupable.transform.position = pickupRoot.transform.position;
             pickupable.gameObject.layer = 10;
             pickupable.transform.parent = pickupRoot.transform;
@@ -62,6 +66,8 @@ public class PlayerPickupObject : MonoBehaviour
     {
         if(pickedUp)
         {
+            cannon.enabled = true;
+
             pickedUp.transform.position = dropRoot.transform.position;
             pickedUp.gameObject.layer = 9;
             pickedUp.transform.parent = null;
