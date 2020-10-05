@@ -12,6 +12,11 @@ public class LogicGateControler : MonoBehaviour
         LoopManager.StartReplay += Reset;
     }
 
+    private void OnDisable()
+    {
+        LoopManager.StartReplay -= Reset;
+    }
+
     [Header("Root options")]
 
     [SerializeField]
